@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AEB26A4B-8CF5-4880-92A0-E4A879EF80B6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SVC</RootNamespace>
+    <AssemblyName>SVC</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\PROGRAMAS\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="libConnection">
+      <HintPath>..\..\libConnection\libConnection\bin\Debug\libConnection.dll</HintPath>
+    </Reference>
+    <Reference Include="libValidaciones">
+      <HintPath>..\..\libValidaciones\libValidaciones\bin\Debug\libValidaciones.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\PROGRAMAS\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="SVClib">
+      <HintPath>..\SVClib\bin\Debug\SVClib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmAlcadia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlcadia.Designer.cs">
+      <DependentUpon>frmAlcadia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCandidatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCandidatos.Designer.cs">
+      <DependentUpon>frmCandidatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCasillas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCasillas.Designer.cs">
+      <DependentUpon>frmCasillas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEstatal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEstatal.Designer.cs">
+      <DependentUpon>frmEstatal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGobernatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGobernatura.Designer.cs">
+      <DependentUpon>frmGobernatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMesaDirectiva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMesaDirectiva.Designer.cs">
+      <DependentUpon>frmMesaDirectiva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevoAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoAdmin.Designer.cs">
+      <DependentUpon>frmNuevoAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevoLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoLogin.Designer.cs">
+      <DependentUpon>frmNuevoLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPartidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPartidos.Designer.cs">
+      <DependentUpon>frmPartidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuejasySugerenciasAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuejasySugerenciasAdmin.Designer.cs">
+      <DependentUpon>frmQuejasySugerenciasAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportes.Designer.cs">
+      <DependentUpon>frmReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSesionAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSesionAdministrador.Designer.cs">
+      <DependentUpon>frmSesionAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="frmQuejasySugerencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuejasySugerencias.Designer.cs">
+      <DependentUpon>frmQuejasySugerencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPresidencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPresidencia.Designer.cs">
+      <DependentUpon>frmPresidencia.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmAlcadia.resx">
+      <DependentUpon>frmAlcadia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCandidatos.resx">
+      <DependentUpon>frmCandidatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCasillas.resx">
+      <DependentUpon>frmCasillas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEstatal.resx">
+      <DependentUpon>frmEstatal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGobernatura.resx">
+      <DependentUpon>frmGobernatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMesaDirectiva.resx">
+      <DependentUpon>frmMesaDirectiva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoAdmin.resx">
+      <DependentUpon>frmNuevoAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoLogin.resx">
+      <DependentUpon>frmNuevoLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPartidos.resx">
+      <DependentUpon>frmPartidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuejasySugerenciasAdmin.resx">
+      <DependentUpon>frmQuejasySugerenciasAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportes.resx">
+      <DependentUpon>frmReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSesionAdministrador.resx">
+      <DependentUpon>frmSesionAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="frmQuejasySugerencias.resx">
+      <DependentUpon>frmQuejasySugerencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPresidencia.resx">
+      <DependentUpon>frmPresidencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoVOTO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerradura1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerradura2...png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerradurachica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerraduraaaaa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_key_309058.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VOTITO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VOTITOOOOOOOOO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07_plus-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\283-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash-01-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\09_search-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\broom_stick_3-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\28_-_PDF_File_Flat-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thin-1570_exit_login_import-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Imagenes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logitovotitoooooooooo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ellooogoooVOOTOOOOOO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\palomaa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
