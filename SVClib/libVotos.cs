@@ -16,6 +16,6 @@ namespace SVClib
         {
             return BD.insertar("INSERT INTO registro_votos(idVotos,TipoPuesto,idCandidato) " +
                 " VALUES ('" + claveelector+ "','" + tipopuesto + "','"+idcandidato+"');");
-        } 
+        }
     }
 }
