@@ -15,18 +15,25 @@ using libConnection;
 using SVClib;
 using libValidaciones;
 using System.Text.RegularExpressions;
+using System.Data.SqlClient;
+using Npgsql;
 namespace SVC
 {
     public partial class frmQuejasySugerenciasAdmin : Form
     {
-        LaConexion c = new LaConexion();
+        ConnectionPostgres pg = new ConnectionPostgres();
+        ConnectionMySql c = new ConnectionMySql();
+        ConnectionSQLServer sql = new ConnectionSQLServer();
         libQuejasySugerencias q = new libQuejasySugerencias();
        
         public frmQuejasySugerenciasAdmin()
         {
             InitializeComponent();
-        }                   
-        private void QYS_Load(object sender, EventArgs e)
+        }
+        /// <summary>
+        /// Métodos que permite la realizacion de las acciones en cada boton
+        /// </summary>
+        private void mysql_load()
         {
             dgvQYS.Rows.Clear();
             c.con = new MySqlConnection("server=127.0.0.1;uid=root;pwd=siqueirosuth19;database=SVC");
@@ -39,20 +46,47 @@ namespace SVC
                 dgvQYS.Rows.Add(c.Dr.GetString(0), c.Dr.GetString(1), c.Dr.GetString(2));
             }
             c.con.Close();
-        }       
-        private void btnELIMINAR_Click(object sender, EventArgs e)
+        }
+        private void sql_load()
+        {
+            sql.con = new SqlConnection("Data Source=BEATRIZDURAN-PC;Integrated Security=SSPI;Initial Catalog=SVC");
+            sql.con.Open();
+            string q = "SELECT * FROM dbo.quejas_sugerencias";
+            sql.comd = new SqlCommand(q, sql.con);
+            sql.Dr = sql.comd.ExecuteReader();
+            while (sql.Dr.Read())
+            {
+                dgvQYS.Rows.Add(sql.Dr.GetString(0), sql.Dr.GetString(1), sql.Dr.GetString(2));
+            }
+            sql.con.Close();
+        }
+        private void mysql_eliminar()
         {
             int ren = dgvQYS.SelectedCells[0].RowIndex;
             string pk = dgvQYS.Rows[ren].Cells[0].Value.ToString();
-            if (q.eliminarQueja("quejas_sugerencias",pk))
+            if (q.eliminarQuejaMysql("quejas_sugerencias", pk))
             {
                 MessageBox.Show("Todo bien");
-            }else
+            }
+            else
             {
                 MessageBox.Show("Noooo");
-            }          
+            }
         }
-        private void btnBUSCAR_Click(object sender, EventArgs e)
+        private void sql_eliminar()
+        {
+            int ren = dgvQYS.SelectedCells[0].RowIndex;
+            string pk = dgvQYS.Rows[ren].Cells[0].Value.ToString();
+            if (q.eliminarQuejasql("quejas_sugerencias", pk))
+            {
+                MessageBox.Show("Todo bien");
+            }
+            else
+            {
+                MessageBox.Show("Noooo");
+            }
+        }
+        private void mysql_buscar()
         {
             dgvQYS.Rows.Clear();
             c.con = new MySqlConnection("server=127.0.0.1;uid=root;pwd=siqueirosuth19;database=SVC");
@@ -64,7 +98,97 @@ namespace SVC
             {
                 dgvQYS.Rows.Add(c.Dr.GetString(0), c.Dr.GetString(1), c.Dr.GetString(2));
             }
-           c. con.Close();
+            c.con.Close();
+        }
+        private void sql_buscar()
+        {
+            dgvQYS.Rows.Clear();
+            sql.con = new SqlConnection("Data Source=BEATRIZDURAN-PC;Integrated Security=SSPI;Initial Catalog=SVC");
+            sql.con.Open();
+            string query1 = "SELECT * FROM [dbo].[quejas_sugerencias] WHERE Fecha='" + txtFECHA.Text + "' OR NombreUsuario='" + txtNOMBREUSUARIO.Text + "'";
+            sql.comd = new SqlCommand(query1, sql.con);
+            sql.Dr = sql.comd.ExecuteReader();
+            while (sql.Dr.Read())
+            {
+                dgvQYS.Rows.Add(sql.Dr.GetString(0), sql.Dr.GetString(1), sql.Dr.GetString(2));
+            }
+            sql.con.Close();
+        }
+        private void pg_eliminar()
+        {
+            int ren = dgvQYS.SelectedCells[0].RowIndex;
+            string pk = dgvQYS.Rows[ren].Cells[0].Value.ToString();
+            if (q.eliminarQuejapg("quejas_sugerencias", pk))
+            {
+                MessageBox.Show("Todo bien");
+            }
+            else
+            {
+                MessageBox.Show("Noooo");
+            }
+        }
+        private void pg_buscar()
+        {
+            dgvQYS.Rows.Clear();
+            pg.con = new NpgsqlConnection("Server=127.0.0.1; Port=5432; User id= postgres; Password=siqueirosuth19; Database=SVC");
+            pg.con.Open();
+            if (txtNOMBREUSUARIO.Text == "")
+            {
+                string quer = "SELECT * FROM public.quejas_sugerencias WHERE fecha='" + txtFECHA.Text + "'";
+                pg.comd = new NpgsqlCommand(quer, pg.con);
+                pg.Dr = pg.comd.ExecuteReader();
+                while (pg.Dr.Read())
+                {
+                    dgvQYS.Rows.Add(pg.Dr.GetValue(0).ToString(), pg.Dr.GetValue(1).ToString(), pg.Dr.GetValue(2).ToString());
+                }
+                pg.Dr.Close();
+            }else
+            {
+                string que = "SELECT * FROM public.quejas_sugerencias WHERE NombreUsuario='" + txtNOMBREUSUARIO.Text + "'";
+                pg.comd = new NpgsqlCommand(que, pg.con);
+                pg.Dr = pg.comd.ExecuteReader();
+                while (pg.Dr.Read())
+                {
+                    dgvQYS.Rows.Add(pg.Dr.GetValue(0).ToString(), pg.Dr.GetValue(1).ToString(), pg.Dr.GetValue(2).ToString());
+                }
+                pg.Dr.Close();
+            }
+           pg.con.Close();
+        }
+        private void pg_Load()
+        {
+            pg.con = new NpgsqlConnection("Server=127.0.0.1; Port=5432; User id= postgres; Password=siqueirosuth19; Database=SVC");
+            pg.con.Open();
+            string quer = "SELECT * FROM public.quejas_sugerencias";
+            pg.comd = new NpgsqlCommand(quer, pg.con);
+            pg.Dr = pg.comd.ExecuteReader();
+            if (pg.Dr.HasRows == true)
+            {
+                while (pg.Dr.Read())
+                {
+                    dgvQYS.Rows.Add(pg.Dr.GetValue(0).ToString(), pg.Dr.GetValue(1).ToString(), pg.Dr.GetValue(2).ToString());
+                }
+            }
+            pg.con.Close();
+        }
+
+        private void QYS_Load(object sender, EventArgs e)
+        {
+            mysql_load();
+            sql_load();
+            pg_Load();
+        }
+        private void btnELIMINAR_Click(object sender, EventArgs e)
+        {
+           mysql_eliminar();
+            sql_eliminar();
+           // pg_eliminar();
+        }
+        private void btnBUSCAR_Click(object sender, EventArgs e)
+        {
+           mysql_buscar();
+            sql_buscar();
+           // pg_buscar();
         }
         private void btnLIMPIAR_Click(object sender, EventArgs e)
         {

@@ -44,11 +44,11 @@
             this.txtFECHA = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvQYS = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNOMBREUSUARIO = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNOMBREUSUARIO = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQYS)).BeginInit();
             this.SuspendLayout();
@@ -231,24 +231,6 @@
             this.dgvQYS.Size = new System.Drawing.Size(718, 276);
             this.dgvQYS.TabIndex = 38;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Nombre";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Descripcion";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Fecha";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -268,7 +250,25 @@
             this.txtNOMBREUSUARIO.Size = new System.Drawing.Size(262, 26);
             this.txtNOMBREUSUARIO.TabIndex = 40;
             // 
-            // QYS
+            // Column1
+            // 
+            this.Column1.HeaderText = "Nombre";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Fecha";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Descripcion";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // frmQuejasySugerenciasAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -283,7 +283,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "QYS";
+            this.Name = "frmQuejasySugerenciasAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QYS";
             this.Load += new System.EventHandler(this.QYS_Load);
@@ -312,10 +312,10 @@
         private System.Windows.Forms.TextBox txtFECHA;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvQYS;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtNOMBREUSUARIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNOMBREUSUARIO;
     }
 }

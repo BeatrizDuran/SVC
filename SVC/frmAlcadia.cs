@@ -15,7 +15,7 @@ namespace SVC
 {
     public partial class frmAlcadia : Form
     {
-        LaConexion BD = new LaConexion();
+        ConnectionMySql BD = new ConnectionMySql();
         libVotos v = new libVotos();
         public frmAlcadia()
         {

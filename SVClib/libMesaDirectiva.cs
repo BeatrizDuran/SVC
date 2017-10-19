@@ -9,20 +9,22 @@ namespace SVClib
 {
     public class libMesaDirectiva
     {
-        LaConexion BD = new LaConexion();
+        ConnectionMySql BD = new ConnectionMySql();
         //AGREGAR DATOS.................................
-        public bool registrarDatos(string clave, string direccion, string nomPresidente, 
+        public bool registrarDatos(string clave, string direccion, string nomPresidente,
             string cPresidente, string nomSecretario, string cSecretario, string PEscrutador,
-            string cPEscrutador, string SEcrutador, string cSEscrutador, string PSuplente, 
-            string cPSuplente, string SSuplente, string cSSuplente, string TSuplente,string cTSuplente)
+            string cPEscrutador, string SEcrutador, string cSEscrutador, string PSuplente,
+            string cPSuplente, string SSuplente, string cSSuplente, string TSuplente, string cTSuplente)
         {
-            return BD.insertar("INSERT INTO mesa_directiva (ClaveMesa,Dirección,NomPresidente,"+
-                "CPresidente,NomSecretario,CSecretario,NomPEscrutador,CPEscrutador,NomSEscrutador,"+
-                "CSEscrutador,NomPSuplente,CPSuplente,NomSSuplente,CSSuplente,NomTSuplente,"+
-                "CTSuplente) VALUES ('"+clave+"','"+direccion+"','"+nomPresidente+"','"+cPresidente+ "','"
-                +nomSecretario+"','"+cSecretario+"','"+PEscrutador+"','"+cPEscrutador +"','"
-                +SEcrutador+"','"+cSEscrutador+"','"+PSuplente+"','"+cPSuplente+"','"+SSuplente+"','"
-                +cSSuplente+"','"+TSuplente+"','"+cTSuplente+"');");
+            return BD.insertar("mesa_directiva","ClaveMesa,Dirección,NomPresidente," +
+                "CPresidente,NomSecretario,CSecretario,NomPEscrutador,CPEscrutador,NomSEscrutador," +
+                "CSEscrutador,NomPSuplente,CPSuplente,NomSSuplente,CSSuplente,NomTSuplente," +
+                "CTSuplente", "ClaveMesa="+clave+",Dirección="+direccion+",NomPresidente="+nomPresidente+"," +
+                "CPresidente="+cPresidente+",NomSecretario="+nomSecretario+",CSecretario="+cSecretario+","+
+                "NomPEscrutador="+PEscrutador+",CPEscrutador="+cPEscrutador+",NomSEscrutador="+SEcrutador+"," +
+                "CSEscrutador="+cSEscrutador+",NomPSuplente="+PSuplente+",CPSuplente="+cPSuplente+","+
+                "NomSSuplente="+SSuplente+",CSSuplente="+cSSuplente+",NomTSuplente="+TSuplente+"," +
+                "CTSuplente="+cTSuplente+"");
         }
         //MODIFICAR DATOS....................
         public bool modificarDatos(string clave, string direccion, string nomPresidente,
@@ -42,7 +44,7 @@ namespace SVClib
         //ELIMINAR DATOS.......................
         public bool eliminarDatos(string tabla, string condicion)
         {
-            return BD.Eliminar("mesa_directiva", "ClaveMesa='" + condicion + "'");
+            return BD.eliminar("mesa_directiva", "ClaveMesa='" + condicion + "'");
         }
     }
 }

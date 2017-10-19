@@ -16,7 +16,7 @@ namespace SVC
 {
     public partial class frmReportes : Form
     {
-        LaConexion bd = new LaConexion();
+        ConnectionMySql bd = new ConnectionMySql();
 
         public frmReportes()
         {

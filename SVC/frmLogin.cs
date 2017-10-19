@@ -14,7 +14,7 @@ namespace SVC
 {
     public partial class frmLogin : Form
     {
-        LaConexion obtenerDatos = new LaConexion();
+        ConnectionMySql obtenerDatos = new ConnectionMySql();
         public static string nombre, ApellidoP, ApellidoM,ClaveElector;
         public static frmLogin _instance;
         public void botones()

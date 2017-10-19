@@ -20,7 +20,7 @@ namespace SVC
 {
     public partial class frmCasillas : Form
     {
-        LaConexion BD = new LaConexion();
+        ConnectionMySql BD = new ConnectionMySql();
         libCasillas c = new libCasillas();
         public frmCasillas()
         {

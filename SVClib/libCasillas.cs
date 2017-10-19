@@ -9,18 +9,19 @@ namespace SVClib
 {
     public class libCasillas
     {
-        LaConexion BD = new LaConexion();
+        ConnectionMySql BD = new ConnectionMySql();
         //REGISTRAR LOS DATOS................
         public bool registrarCasilla(string claveCasilla, string colonia, string direccion,
             string codigoPostal, string NomPresidente, string NomSecretario, string NomPrimerEscrutador,
             string NomSegundoEscrutador, string NomPrimerSuplente, string NomSegundoSuplente, string NomTercerSuplente)
         {
-            return BD.insertar("INSERT INTO casillas (ClaveCasilla, ColoniaCasilla, DireccionCasilla,"+
-              " CodigoPostalCasilla,NomPresidente,NomSecretario,NomPrimerEscrutador,NomSegundoEscrutador,"+
-              " NomPrimerSuplente,NomSegundoSuplente,NomTercerSuplente) VALUES ('"+claveCasilla+"','"
-              +colonia+"','"+direccion+"','"+codigoPostal+"','"+NomPresidente+"','"+NomSecretario+"','"
-              +NomPrimerEscrutador+"','"+NomSegundoEscrutador+"','"+NomPrimerSuplente+"','"+NomSegundoSuplente+"','"
-              +NomTercerSuplente+"');");
+            return BD.insertar("casillas","ClaveCasilla, ColoniaCasilla, DireccionCasilla," +
+              " CodigoPostalCasilla,NomPresidente,NomSecretario,NomPrimerEscrutador,NomSegundoEscrutador," +
+              " NomPrimerSuplente,NomSegundoSuplente,NomTercerSuplente", "ClaveCasilla="+claveCasilla+","+
+              "ColoniaCasilla="+colonia+", DireccionCasilla="+direccion+"," +
+              " CodigoPostalCasilla="+codigoPostal+",NomPresidente="+NomPresidente+",NomSecretario="+NomSecretario+","+
+              "NomPrimerEscrutador="+NomPrimerEscrutador+",NomSegundoEscrutador="+NomSegundoEscrutador+"," +
+              " NomPrimerSuplente="+NomPrimerSuplente+",NomSegundoSuplente="+NomSegundoSuplente+",NomTercerSuplente="+NomTercerSuplente+"");
         }
         //MODIFICAR LOS DATOS.............
         public bool modificarCasilla(string claveCasilla, string colonia, string direccion,
@@ -35,7 +36,7 @@ namespace SVClib
         //ELIMINAR DATOS...............
         public bool eliminarDatos(string tabla, string condicion)
         {
-            return BD.Eliminar("casillas", "ClaveCasilla='" + condicion + "'");
+            return BD.eliminar("casillas", "ClaveCasilla='" + condicion + "'");
         }
     }
 }

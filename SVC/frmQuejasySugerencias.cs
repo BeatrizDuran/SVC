@@ -8,27 +8,43 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using libConnection;
+using SVClib;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+using Npgsql;
 
 namespace SVC
 {
     public partial class frmQuejasySugerencias : Form
     {
-        quejita q = new quejita();
+        libQuejasySugerencias q = new libQuejasySugerencias();
         public frmQuejasySugerencias()
         {
             InitializeComponent();
         }
-        private void enviar()
+        private void mysql_agregar()
         {
-            if (q.nuevaQueja(txtNOMBRE.Text, txtDESCRIPCION.Text, lblFECHA.Text))
+           if( q.nuevaQuejaMysql(txtNOMBRE.Text, txtDESCRIPCION.Text, lblFECHA.Text))
             {
-                MessageBox.Show("Perfecto");
+                MessageBox.Show("Se registro en Mysql");
             }
             else
             {
-                MessageBox.Show("Malisimo");
+                MessageBox.Show("No se registro en Mysql");
             }
+                    
         }
+        private void sql_agregar()
+        {
+                if (q.nuevaQuejasql(txtNOMBRE.Text, txtDESCRIPCION.Text, lblFECHA.Text))
+                    MessageBox.Show("Perfecto sql server");
+                else MessageBox.Show("Malisimo sql server");
+            }
+        private void pg_agregar()
+        {
+            q.nuevaQuejapg(txtNOMBRE.Text, txtDESCRIPCION.Text, lblFECHA.Text);
+        }
+
         private void btnMENUPRINCIPAL_Click(object sender, EventArgs e)
         {
             frmLogin a = new frmLogin();
@@ -46,7 +62,9 @@ namespace SVC
         }
         private void btnENVIAR_Click(object sender, EventArgs e)
         {
-            enviar();          
+            sql_agregar();
+            mysql_agregar();
+            //pg_agregar();         
         }
     }
 }

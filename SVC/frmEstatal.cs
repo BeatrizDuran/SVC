@@ -15,7 +15,7 @@ namespace SVC
 {
     public partial class frmEstatal : Form
     {
-        LaConexion BD = new LaConexion();
+        ConnectionMySql BD = new ConnectionMySql();
         libVotos v = new libVotos();
         public frmEstatal()
         {

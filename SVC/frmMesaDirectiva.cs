@@ -19,7 +19,7 @@ namespace SVC
 {
     public partial class frmMesaDirectiva : Form
     {
-        LaConexion BD = new LaConexion();
+        ConnectionMySql BD = new ConnectionMySql();
         libMesaDirectiva m = new libMesaDirectiva(); 
         public frmMesaDirectiva()
         {
@@ -130,7 +130,7 @@ namespace SVC
         private void leaveMesaDirectiva()
         {
             txtCLAVEMESADIRECTIVA.SelectionStart = txtCLAVEMESADIRECTIVA.TextLength;
-            if (libValidaciones.libValidaciones.numeros(txtCLAVEMESADIRECTIVA.Text))
+            if (libValidaciones.Val.numeros(txtCLAVEMESADIRECTIVA.Text))
             { MessageBox.Show("Correcto"); }
             else { MessageBox.Show("Solo numeros"); }
         }
@@ -138,14 +138,14 @@ namespace SVC
         {
 
             txtSMESADIRECTIVA.SelectionStart = txtSMESADIRECTIVA.TextLength;
-            if (libValidaciones.libValidaciones.letras(txtSMESADIRECTIVA.Text))
+            if (libValidaciones.Val.letras(txtSMESADIRECTIVA.Text))
             { MessageBox.Show("Correcto"); }
             else { MessageBox.Show("Solo letras"); }
         }       
         private void leavePRIMERESCRUTADOR()
         {
             txtPRIMERESCRUTADOR.SelectionStart = txtPRIMERESCRUTADOR.TextLength;
-            if (libValidaciones.libValidaciones.letras(txtPRIMERESCRUTADOR.Text))
+            if (libValidaciones.Val.letras(txtPRIMERESCRUTADOR.Text))
             {
                 MessageBox.Show("Correcto");
             }
@@ -154,7 +154,7 @@ namespace SVC
         private void leaveSEGUNDOESCRUTADOR()
         {
             txtSEGUNDOescrutador.SelectionStart = txtSEGUNDOescrutador.TextLength;
-            if (libValidaciones.libValidaciones.letras(txtSEGUNDOescrutador.Text))
+            if (libValidaciones.Val.letras(txtSEGUNDOescrutador.Text))
             {
                 MessageBox.Show("Correcto");
             }
@@ -164,7 +164,7 @@ namespace SVC
         {
 
             txtPRESIDENTEmesaDIRECTIVA.SelectionStart = txtPRESIDENTEmesaDIRECTIVA.TextLength;
-            if (libValidaciones.libValidaciones.letras(txtPRESIDENTEmesaDIRECTIVA.Text))
+            if (libValidaciones.Val.letras(txtPRESIDENTEmesaDIRECTIVA.Text))
             {
                 MessageBox.Show("Correcto");
             }
@@ -173,7 +173,7 @@ namespace SVC
         private void leavePRIMERSUPLENTE()
         {
             txtPRIMERsuplente.SelectionStart = txtPRIMERsuplente.TextLength;
-            if (libValidaciones.libValidaciones.letras(txtPRIMERsuplente.Text))
+            if (libValidaciones.Val.letras(txtPRIMERsuplente.Text))
             {
                 MessageBox.Show("Correcto");
             }
@@ -182,7 +182,7 @@ namespace SVC
         private void leaveSEGUNDOSUPLENTE()
         {
             txtSEGUNDOsuplente.SelectionStart = txtSEGUNDOsuplente.TextLength;
-            if (libValidaciones.libValidaciones.letras(txtSEGUNDOsuplente.Text))
+            if (libValidaciones.Val.letras(txtSEGUNDOsuplente.Text))
             {
                 MessageBox.Show("Correcto");
             }
@@ -191,7 +191,7 @@ namespace SVC
         private void textChangedTERCERSUPLENTE()
         {
             txtTERCERsuplente.SelectionStart = txtTERCERsuplente.TextLength;
-            if (libValidaciones.libValidaciones.letras(txtTERCERsuplente.Text))
+            if (libValidaciones.Val.letras(txtTERCERsuplente.Text))
             {
                 MessageBox.Show("Correcto");
             }
@@ -254,7 +254,7 @@ namespace SVC
         {
             int ren = dgvMESADIRECTIVA.SelectedCells[0].RowIndex;
             string pk = dgvMESADIRECTIVA.Rows[ren].Cells[0].Value.ToString();
-            if (BD.Eliminar("mesa_directiva",pk))
+            if (BD.eliminar("mesa_directiva",pk))
             {
                 MesaDirectiva_Load(sender, e);
                 MessageBox.Show("Registro Eliminado");

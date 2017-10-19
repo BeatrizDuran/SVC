@@ -18,7 +18,7 @@ namespace SVC
 {
     public partial class frmUsuarios : Form
     {
-        LaConexion BD = new LaConexion();
+        ConnectionMySql BD = new ConnectionMySql();
         libUsuarios u =new libUsuarios();       
         public void administrador()
         {

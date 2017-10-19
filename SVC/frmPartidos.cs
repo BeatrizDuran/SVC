@@ -19,7 +19,7 @@ namespace SVC
 {
     public partial class frmPartidos : Form
     {
-        LaConexion BD = new LaConexion();
+        ConnectionMySql BD = new ConnectionMySql();
         libPartidos p = new libPartidos();
         public frmPartidos()
         {

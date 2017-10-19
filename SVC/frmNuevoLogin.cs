@@ -19,7 +19,7 @@ namespace SVC
             InitializeComponent();
           
         }
-        LaConexion obtenerDatos = new LaConexion();
+        ConnectionMySql obtenerDatos = new ConnectionMySql();
         public static string nombre, ApellidoP, ApellidoM, ClaveElector;
         
         private void btnSALIR_Click(object sender, EventArgs e)

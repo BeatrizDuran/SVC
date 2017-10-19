@@ -9,20 +9,21 @@ namespace SVClib
 {
     public class libPartidos
     {
-        LaConexion BD = new LaConexion();
+        ConnectionMySql BD = new ConnectionMySql();
         //AGREGAR DATOS......................
         public bool registrarDatos(string clave, string partido, string nomRepresentante,
-            string APRepresentante, string AMRepresentante, string nomVPresidente, 
+            string APRepresentante, string AMRepresentante, string nomVPresidente,
             string APVPresidente, string AMVPresidente, string imagen)
         {
-            return BD.insertar("INSERT INTO partidos (ClavePartido,NomPartido,NomRepresentante,"+
-               " APRepresentante, AMRepresentante, NomVicepresidente, APVicepresidente, AMVicepresidente,"+
-              " Imagen) VALUES ('"+clave+"','"+partido+"','"+nomRepresentante+"','"+APRepresentante+"','"
-              +AMRepresentante+"','"+nomVPresidente+"','"+APVPresidente+"','"+AMVPresidente+"','"
-              +imagen+"');");
-            
+            return BD.insertar("partidos","ClavePartido,NomPartido,NomRepresentante," +
+               " APRepresentante, AMRepresentante, NomVicepresidente, APVicepresidente, AMVicepresidente," +
+              " Imagen", "ClavePartido="+clave+",NomPartido="+partido+",NomRepresentante="+nomRepresentante+"," +
+               " APRepresentante="+APRepresentante+", AMRepresentante="+AMRepresentante+"," +
+               "NomVicepresidente="+nomVPresidente+", APVicepresidente="+APVPresidente+", AMVicepresidente="+AMVPresidente+"," +
+              " Imagen="+imagen+"");
+
         }
-        
+
         //MODIFICAR DATOS........................
         public bool modificarDatos(string clave, string partido, string nomRepresentante,
             string APRepresentante, string AMRepresentante, string nomVPresidente,
@@ -37,7 +38,7 @@ namespace SVClib
         //ELIMINAR DATOS...............
         public bool eliminarDatos(string tabla, string condicion)
         {
-            return BD.Eliminar("partidos", "ClavePartido='" + condicion + "'");
+            return BD.eliminar("partidos", "ClavePartido='" + condicion + "'");
         }
     }
 }

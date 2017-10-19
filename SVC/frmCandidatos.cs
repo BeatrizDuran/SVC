@@ -19,7 +19,7 @@ namespace SVC
 {
     public partial class frmCandidatos : Form
     {
-        LaConexion bd = new LaConexion();
+        ConnectionMySql bd = new ConnectionMySql();
         libCandidatos c = new libCandidatos();
         public frmCandidatos()
         {

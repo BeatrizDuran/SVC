@@ -9,15 +9,16 @@ namespace SVClib
 {
     public class libCandidatos
     {
-        LaConexion bd = new LaConexion();
+        ConnectionMySql bd = new ConnectionMySql();
         //AGREGAR REGISTRO.....................
-        public bool registroCandidatos(string idcandidato, string nombre, string AP,string AM,
-            string claveelector, string niveleleccion,string tipopuesto, string clavepartido)
+        public bool registroCandidatos(string idcandidato, string nombre, string AP, string AM,
+            string claveelector, string niveleleccion, string tipopuesto, string clavepartido)
         {
-            return bd.insertar("INSERT INTO partidos_candidatos (idCandidato,CandidatoNombre,"+
-                "CandidatoApeP,CandidatoApeM,ClaveElector,NivelEleccion,TipoPuesto,ClavePartido) " +
-                "VALUES ('" + idcandidato + "','" + nombre + "'," + AP + "','" + AM + "','"
-                + claveelector + "','" + niveleleccion + "','" +tipopuesto + "','" + clavepartido +"');");
+            return bd.insertar("partidos_candidatos","idCandidato,CandidatoNombre," +
+                "CandidatoApeP,CandidatoApeM,ClaveElector,NivelEleccion,TipoPuesto,ClavePartido",
+                "idCandidato="+idcandidato+",CandidatoNombre="+nombre+"," +
+                "CandidatoApeP="+AP+",CandidatoApeM="+AM+",ClaveElector="+claveelector+","+
+                "NivelEleccion="+niveleleccion+",TipoPuesto="+tipopuesto+",ClavePartido="+clavepartido+"");
         }
         //MODIFICAR REGISTRO..................
         public bool modificarRegistro(string idcandidato, string nombre, string AP, string AM,
@@ -26,13 +27,13 @@ namespace SVClib
             return bd.modificar("partidos_candidatos", "idCandidato='" + idcandidato +
                 "', CandidatoNombre='" + nombre + "', CandidatoApeP='" + AP +
                 "', CandidatoApeM='" + AM + "', ClaveElector='" + claveelector +
-                "', nivelEleccion='" + niveleleccion + 
-                "',TipoPuesto='" + tipopuesto + "',ClavePartido='"+clavepartido+"'","idCandidato='" + idcandidato + ";");
+                "', nivelEleccion='" + niveleleccion +
+                "',TipoPuesto='" + tipopuesto + "',ClavePartido='" + clavepartido + "'", "idCandidato='" + idcandidato + ";");
         }
-        //ELIMINAR REGISTRO...................
+        ////ELIMINAR REGISTRO...................
         public bool eliminarRegistro(string tabla, string condicion)
         {
-            return bd.Eliminar("partidos_candidatos", "idCandidato='" + condicion + "'");
+            return bd.eliminar("partidos_candidatos", "idCandidato='" + condicion + "'");
         }
     }
 }

@@ -9,11 +9,12 @@ namespace SVClib
 {
     public class libQuejasySugerencias
     {
-        //hhhhhhhhhhhhhh
+        
         /// <summary>
         /// Conexion con MySQL
         /// </summary>
         ConnectionMySql BD = new ConnectionMySql();
+        public string error;
         /// <summary>
         /// Agregar quejas.....
         /// </summary>
@@ -21,10 +22,10 @@ namespace SVClib
         /// <param name="descripcion">descripcion de la queja o sugerencia</param>
         /// <param name="fecha">fecha en la que e genero la queja</param>
         /// <returns></returns>
-        public bool nuevaQueja(string NombreUsuario, string descripcion, string fecha)
+        public bool nuevaQuejaMysql(string nomusuario, string descripcion, string fecha)
         {
-            return BD.insertar("INSERT INTO quejas_sugerencias (NombreUsuario,Descripcion,Fecha) " +
-                " VALUES ('" + NombreUsuario + "','" + descripcion + "','" + fecha + "');");
+            return BD.insertar("quejas_sugerencias", "NombreUsuario,Descripcion,Fecha", "'" + nomusuario + "','" + descripcion + "','" + fecha + "'");
+           
         }
         /// <summary>
         /// Eliminar queja o sugerencia
@@ -32,7 +33,7 @@ namespace SVClib
         /// <param name="tablas">nombre de la tabla</param>
         /// <param name="condicion">condicion de la cual se quiere eliminar</param>
         /// <returns></returns>
-        public bool eliminarQueja(string tablas, string condicion)
+        public bool eliminarQuejaMysql(string tablas, string condicion)
         {
             return BD.eliminar("quejas_sugerencias", "NombreUsuario='" + condicion + "'");
         }
@@ -50,8 +51,43 @@ namespace SVClib
         /// <returns></returns>
         public bool nuevaQuejasql(string nomusuario, string descripcion, string fecha)
         {
-            return sql.insertar("INSERT INTO dbo.quejas_sugerencias (NombreUsuario,Descripcion,Fecha) " +
-               " VALUES ('" + nomusuario + "','" + descripcion + "','" + fecha + "');");
+            return sql.insertar("dbo.quejas_sugerencias","NombreUsuario,Descripcion,Fecha","'"+nomusuario+"','"+ descripcion+"','"+fecha+"'");
+        }
+        /// <summary>
+        /// Eliminacion de la queja
+        /// </summary>
+        /// <param name="tablas">nombre de la tabla</param>
+        /// <param name="condicion">dato del cual se quiere eliminar</param>
+        /// <returns></returns>
+        public bool eliminarQuejasql(string tablas, string condicion)
+        {
+            return sql.eliminar("[dbo].[quejas_sugerencias]", "NombreUsuario='" + condicion + "'");
+        }
+
+        /// <summary>
+        /// Conexion con postgres
+        /// </summary>
+        ConnectionPostgres pg = new ConnectionPostgres();
+        /// <summary>
+        /// Agregando datos
+        /// </summary>
+        /// <param name="nomusuario">nombre de la persona ya sea anonima</param>
+        /// <param name="descripcion">descripcion de la queja o sugerencia</param>
+        /// <param name="fecha">fecha en el cual se registro</param>
+        /// <returns></returns>
+        public bool nuevaQuejapg(string nomusuario, string descripcion, string fecha)
+        {
+            return pg.insertar("public.quejas_sugerencias", " NombreUsuario,Descripcion,fecha ", " '" + nomusuario + "','"+descripcion+"','" + fecha+"' ");
+        }
+        /// <summary>
+        /// Eliminando registro con postgres
+        /// </summary>
+        /// <param name="tablas">nombre de la tabla</param>
+        /// <param name="condicion">parametro el cual se desea eliminar(dato en especifico)</param>
+        /// <returns></returns>
+        public bool eliminarQuejapg(string tablas, string condicion)
+        {
+            return pg.eliminar("public.quejas_sugerencias", "NombreUsuario='" + condicion + "'");
         }
     }
 }
