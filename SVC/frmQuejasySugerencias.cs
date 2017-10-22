@@ -42,7 +42,13 @@ namespace SVC
             }
         private void pg_agregar()
         {
-            q.nuevaQuejapg(txtNOMBRE.Text, txtDESCRIPCION.Text, lblFECHA.Text);
+            if(q.nuevaQuejapg(txtNOMBRE.Text, txtDESCRIPCION.Text, lblFECHA.Text))
+            {
+                MessageBox.Show("Perfecto se registro postgres");
+            }else
+            {
+                MessageBox.Show("Que mal, que mal postgres");
+            }
         }
 
         private void btnMENUPRINCIPAL_Click(object sender, EventArgs e)
@@ -64,7 +70,7 @@ namespace SVC
         {
             sql_agregar();
             mysql_agregar();
-            //pg_agregar();         
+            pg_agregar();         
         }
     }
 }

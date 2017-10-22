@@ -14,11 +14,11 @@ namespace SVClib
         public bool registroCandidatos(string idcandidato, string nombre, string AP, string AM,
             string claveelector, string niveleleccion, string tipopuesto, string clavepartido)
         {
-            return bd.insertar("partidos_candidatos","idCandidato,CandidatoNombre," +
-                "CandidatoApeP,CandidatoApeM,ClaveElector,NivelEleccion,TipoPuesto,ClavePartido",
-                "idCandidato="+idcandidato+",CandidatoNombre="+nombre+"," +
-                "CandidatoApeP="+AP+",CandidatoApeM="+AM+",ClaveElector="+claveelector+","+
-                "NivelEleccion="+niveleleccion+",TipoPuesto="+tipopuesto+",ClavePartido="+clavepartido+"");
+            return bd.insertar("INSERT INTO partidos_candidatos (idCandidato,CandidatoNombre," +
+                "CandidatoApeP,CandidatoApeM,ClaveElector,NivelEleccion,TipoPuesto,ClavePartido)"+
+                "'"+idcandidato+"','"+nombre+"','" +
+                "'"+AP+"','"+AM+"','"+claveelector+"','"+
+                "'"+niveleleccion+"','"+tipopuesto+"','"+clavepartido+"')");
         }
         //MODIFICAR REGISTRO..................
         public bool modificarRegistro(string idcandidato, string nombre, string AP, string AM,

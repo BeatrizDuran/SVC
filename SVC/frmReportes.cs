@@ -11,6 +11,8 @@ using libConnection;
 using SVClib;
 using MySql.Data.MySqlClient;
 using System.IO;
+using Microsoft.Reporting.WinForms;
+using Microsoft.ReportingServices.
 
 namespace SVC
 {
@@ -25,7 +27,15 @@ namespace SVC
 
         private void Reportes_Load(object sender, EventArgs e)
         {
-            
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.ProcessingMode = ProcessingMode.Local;
+
+            LocalReport localReport = reportViewer1.LocalReport;
+            localReport.ReportPath = "ManagementReport.rdlc";
+            localReport.DataSources.Add(new ReportDataSource("GeneralDSManagementReport", Invoice));
+            localReport.DataSources.Add(new ReportDataSource("DetailDSManagementReport", Detail));
+
+            reportViewer1.RefreshReport();
         }
 
         private void btnTOTALVOTANTES_Click(object sender, EventArgs e)

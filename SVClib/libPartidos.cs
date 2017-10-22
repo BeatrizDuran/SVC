@@ -15,12 +15,12 @@ namespace SVClib
             string APRepresentante, string AMRepresentante, string nomVPresidente,
             string APVPresidente, string AMVPresidente, string imagen)
         {
-            return BD.insertar("partidos","ClavePartido,NomPartido,NomRepresentante," +
+            return BD.insertar("INSERT INTO partidos (ClavePartido,NomPartido,NomRepresentante," +
                " APRepresentante, AMRepresentante, NomVicepresidente, APVicepresidente, AMVicepresidente," +
-              " Imagen", "ClavePartido="+clave+",NomPartido="+partido+",NomRepresentante="+nomRepresentante+"," +
-               " APRepresentante="+APRepresentante+", AMRepresentante="+AMRepresentante+"," +
-               "NomVicepresidente="+nomVPresidente+", APVicepresidente="+APVPresidente+", AMVicepresidente="+AMVPresidente+"," +
-              " Imagen="+imagen+"");
+              " Imagen) VALUES ('"+clave+"','"+partido+"','"+nomRepresentante+"," +
+               "'"+APRepresentante+"','"+AMRepresentante+"','" +
+               "'"+nomVPresidente+"','"+APVPresidente+"','"+AMVPresidente+"','" +
+              "'"+imagen+"')");
 
         }
 

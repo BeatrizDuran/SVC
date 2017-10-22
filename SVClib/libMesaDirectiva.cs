@@ -16,15 +16,15 @@ namespace SVClib
             string cPEscrutador, string SEcrutador, string cSEscrutador, string PSuplente,
             string cPSuplente, string SSuplente, string cSSuplente, string TSuplente, string cTSuplente)
         {
-            return BD.insertar("mesa_directiva","ClaveMesa,Dirección,NomPresidente," +
+            return BD.insertar("INSERT INTO mesa_directiva (ClaveMesa,Dirección,NomPresidente," +
                 "CPresidente,NomSecretario,CSecretario,NomPEscrutador,CPEscrutador,NomSEscrutador," +
                 "CSEscrutador,NomPSuplente,CPSuplente,NomSSuplente,CSSuplente,NomTSuplente," +
-                "CTSuplente", "ClaveMesa="+clave+",Dirección="+direccion+",NomPresidente="+nomPresidente+"," +
-                "CPresidente="+cPresidente+",NomSecretario="+nomSecretario+",CSecretario="+cSecretario+","+
-                "NomPEscrutador="+PEscrutador+",CPEscrutador="+cPEscrutador+",NomSEscrutador="+SEcrutador+"," +
-                "CSEscrutador="+cSEscrutador+",NomPSuplente="+PSuplente+",CPSuplente="+cPSuplente+","+
-                "NomSSuplente="+SSuplente+",CSSuplente="+cSSuplente+",NomTSuplente="+TSuplente+"," +
-                "CTSuplente="+cTSuplente+"");
+                "CTSuplente) VALUES ('"+clave+"','"+direccion+"','"+nomPresidente+"','" +
+                "'"+cPresidente+"','"+nomSecretario+"','"+cSecretario+"','"+
+                "'"+PEscrutador+"','"+cPEscrutador+"','"+SEcrutador+"','" +
+                "'"+cSEscrutador+"','"+PSuplente+"','"+cPSuplente+"','"+
+                "'"+SSuplente+"','"+cSSuplente+"','"+TSuplente+"','" +
+                "'"+cTSuplente+"')");
         }
         //MODIFICAR DATOS....................
         public bool modificarDatos(string clave, string direccion, string nomPresidente,

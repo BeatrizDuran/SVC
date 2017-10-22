@@ -14,7 +14,7 @@ namespace SVClib
         //REGISTRAR DATOS.................
         public bool registroVoto(string claveelector, string tipopuesto, string idcandidato)
         {
-            return BD.insertar("votos", "idVotos,TipoPuesto,idCandidato", "idVotos=" + claveelector + ", TipoPuesto=" + tipopuesto + ", idCandidato=" + idcandidato);
+            return BD.insertar("INSERT INTO votos (idVotos,TipoPuesto,idCandidato) VALUES ('" + claveelector + "','" + tipopuesto + "','" + idcandidato+"')");
         }
     }
 }

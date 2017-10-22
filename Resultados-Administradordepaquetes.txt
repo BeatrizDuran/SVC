@@ -1,0 +1,57 @@
+﻿
+
+Intentando recopilar información sobre la dependencia para el paquete 'RDLCReportRunner.1.0.0' respecto al proyecto 'SVClib', con el destino '.NETFramework,Version=v4.5.2'
+La recopilación de información de dependencia tardó 1,91 sec
+Intentando resolver las dependencias para el paquete 'RDLCReportRunner.1.0.0' con DependencyBehavior 'Lowest'
+La resolución de información de dependencia tardó 0 ms
+Resolviendo acciones para instalar el paquete 'RDLCReportRunner.1.0.0'
+Se resolvieron las acciones para instalar el paquete 'RDLCReportRunner.1.0.0'
+
+
+Intentando recopilar información sobre la dependencia para el paquete 'RDLCReportRunner.1.0.0' respecto al proyecto 'SVC', con el destino '.NETFramework,Version=v4.5.2'
+La recopilación de información de dependencia tardó 175,45 ms
+Intentando resolver las dependencias para el paquete 'RDLCReportRunner.1.0.0' con DependencyBehavior 'Lowest'
+La resolución de información de dependencia tardó 0 ms
+Resolviendo acciones para instalar el paquete 'RDLCReportRunner.1.0.0'
+Se resolvieron las acciones para instalar el paquete 'RDLCReportRunner.1.0.0'
+Recuperando paquete 'Microsoft.ReportViewer.Common.VS2010 10.0.40219.1' de 'nuget.org'.
+  GET https://api.nuget.org/v3-flatcontainer/microsoft.reportviewer.common.vs2010/10.0.40219.1/microsoft.reportviewer.common.vs2010.10.0.40219.1.nupkg
+  GET https://api.nuget.org/v3-flatcontainer/rdlcreportrunner/1.0.0/rdlcreportrunner.1.0.0.nupkg
+  GET https://api.nuget.org/v3-flatcontainer/microsoft.reportviewer.winforms.vs2010/10.0.40219.1/microsoft.reportviewer.winforms.vs2010.10.0.40219.1.nupkg
+Recuperando paquete 'Microsoft.ReportViewer.WinForms.VS2010 10.0.40219.1' de 'nuget.org'.
+Recuperando paquete 'RDLCReportRunner 1.0.0' de 'nuget.org'.
+  OK https://api.nuget.org/v3-flatcontainer/rdlcreportrunner/1.0.0/rdlcreportrunner.1.0.0.nupkg 409 ms 
+  OK https://api.nuget.org/v3-flatcontainer/microsoft.reportviewer.common.vs2010/10.0.40219.1/microsoft.reportviewer.common.vs2010.10.0.40219.1.nupkg 523 ms 
+Instalando RDLCReportRunner 1.0.0.
+Instalando Microsoft.ReportViewer.Common.VS2010 10.0.40219.1.
+  OK https://api.nuget.org/v3-flatcontainer/microsoft.reportviewer.winforms.vs2010/10.0.40219.1/microsoft.reportviewer.winforms.vs2010.10.0.40219.1.nupkg 4413 ms 
+Instalando Microsoft.ReportViewer.WinForms.VS2010 10.0.40219.1.
+Agregando el paquete 'Microsoft.ReportViewer.Common.VS2010.10.0.40219.1' a la carpeta 'C:\Users\BeatrizDuran\Documents\Visual Studio 2015\Projects\SVC\packages'
+El paquete 'Microsoft.ReportViewer.Common.VS2010.10.0.40219.1' se agregó a la carpeta 'C:\Users\BeatrizDuran\Documents\Visual Studio 2015\Projects\SVC\packages'
+El paquete 'Microsoft.ReportViewer.Common.VS2010.10.0.40219.1' se agregó a 'packages.config'
+'Microsoft.ReportViewer.Common.VS2010 10.0.40219.1' se instaló correctamente en SVClib
+Agregando el paquete 'Microsoft.ReportViewer.WinForms.VS2010.10.0.40219.1' a la carpeta 'C:\Users\BeatrizDuran\Documents\Visual Studio 2015\Projects\SVC\packages'
+El paquete 'Microsoft.ReportViewer.WinForms.VS2010.10.0.40219.1' se agregó a la carpeta 'C:\Users\BeatrizDuran\Documents\Visual Studio 2015\Projects\SVC\packages'
+El paquete 'Microsoft.ReportViewer.WinForms.VS2010.10.0.40219.1' se agregó a 'packages.config'
+'Microsoft.ReportViewer.WinForms.VS2010 10.0.40219.1' se instaló correctamente en SVClib
+Agregando el paquete 'RDLCReportRunner.1.0.0' a la carpeta 'C:\Users\BeatrizDuran\Documents\Visual Studio 2015\Projects\SVC\packages'
+El paquete 'RDLCReportRunner.1.0.0' se agregó a la carpeta 'C:\Users\BeatrizDuran\Documents\Visual Studio 2015\Projects\SVC\packages'
+El paquete 'RDLCReportRunner.1.0.0' se agregó a 'packages.config'
+'RDLCReportRunner 1.0.0' se instaló correctamente en SVClib
+La ejecución de acciones de NuGet tardó 1,52 min
+Se encontró el paquete 'Microsoft.ReportViewer.Common.VS2010 10.0.40219.1' en 'C:\Users\BeatrizDuran\Documents\Visual Studio 2015\Projects\SVC\packages'.
+Se encontró el paquete 'Microsoft.ReportViewer.WinForms.VS2010 10.0.40219.1' en 'C:\Users\BeatrizDuran\Documents\Visual Studio 2015\Projects\SVC\packages'.
+Se encontró el paquete 'RDLCReportRunner 1.0.0' en 'C:\Users\BeatrizDuran\Documents\Visual Studio 2015\Projects\SVC\packages'.
+El paquete 'Microsoft.ReportViewer.Common.VS2010.10.0.40219.1' ya existe en la carpeta 'C:\Users\BeatrizDuran\Documents\Visual Studio 2015\Projects\SVC\packages'
+El paquete 'Microsoft.ReportViewer.Common.VS2010.10.0.40219.1' se agregó a 'packages.config'
+'Microsoft.ReportViewer.Common.VS2010 10.0.40219.1' se instaló correctamente en SVC
+El paquete 'Microsoft.ReportViewer.WinForms.VS2010.10.0.40219.1' ya existe en la carpeta 'C:\Users\BeatrizDuran\Documents\Visual Studio 2015\Projects\SVC\packages'
+El paquete 'Microsoft.ReportViewer.WinForms.VS2010.10.0.40219.1' se agregó a 'packages.config'
+'Microsoft.ReportViewer.WinForms.VS2010 10.0.40219.1' se instaló correctamente en SVC
+El paquete 'RDLCReportRunner.1.0.0' ya existe en la carpeta 'C:\Users\BeatrizDuran\Documents\Visual Studio 2015\Projects\SVC\packages'
+El paquete 'RDLCReportRunner.1.0.0' se agregó a 'packages.config'
+'RDLCReportRunner 1.0.0' se instaló correctamente en SVC
+La ejecución de acciones de NuGet tardó 1,11 min
+Tiempo transcurrido: 00:02:44.5046974
+========== Finalizado ==========
+

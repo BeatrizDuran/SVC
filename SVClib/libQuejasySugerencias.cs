@@ -24,7 +24,8 @@ namespace SVClib
         /// <returns></returns>
         public bool nuevaQuejaMysql(string nomusuario, string descripcion, string fecha)
         {
-            return BD.insertar("quejas_sugerencias", "NombreUsuario,Descripcion,Fecha", "'" + nomusuario + "','" + descripcion + "','" + fecha + "'");
+            return BD.insertar("INSERT INTO quejas_sugerencias (NombreUsuario,Descripcion,Fecha) " +
+                "VALUES ('" + nomusuario + "','" + descripcion + "','" + fecha + "');");
            
         }
         /// <summary>
@@ -51,7 +52,8 @@ namespace SVClib
         /// <returns></returns>
         public bool nuevaQuejasql(string nomusuario, string descripcion, string fecha)
         {
-            return sql.insertar("dbo.quejas_sugerencias","NombreUsuario,Descripcion,Fecha","'"+nomusuario+"','"+ descripcion+"','"+fecha+"'");
+            return sql.insertar("INSERT INTO quejas_sugerencias (NombreUsuario,Descripcion,Fecha)" +
+                "VALUES ('" + nomusuario + "','" + descripcion + "','" + fecha + "')");
         }
         /// <summary>
         /// Eliminacion de la queja
@@ -61,7 +63,7 @@ namespace SVClib
         /// <returns></returns>
         public bool eliminarQuejasql(string tablas, string condicion)
         {
-            return sql.eliminar("[dbo].[quejas_sugerencias]", "NombreUsuario='" + condicion + "'");
+            return sql.eliminar("dbo.quejas_sugerencias", "NombreUsuario='" + condicion + "'");
         }
 
         /// <summary>
@@ -77,7 +79,8 @@ namespace SVClib
         /// <returns></returns>
         public bool nuevaQuejapg(string nomusuario, string descripcion, string fecha)
         {
-            return pg.insertar("public.quejas_sugerencias", " NombreUsuario,Descripcion,fecha ", " '" + nomusuario + "','"+descripcion+"','" + fecha+"' ");
+            return pg.insertar("INSERT INTO quejas_sugerencias "+
+                "VALUES ('"+ nomusuario + "','"+descripcion+"','" + fecha+"')");
         }
         /// <summary>
         /// Eliminando registro con postgres
@@ -87,7 +90,7 @@ namespace SVClib
         /// <returns></returns>
         public bool eliminarQuejapg(string tablas, string condicion)
         {
-            return pg.eliminar("public.quejas_sugerencias", "NombreUsuario='" + condicion + "'");
+            return pg.eliminar("quejas_sugerencias", "nombreusuario='" + condicion + "'");
         }
     }
 }

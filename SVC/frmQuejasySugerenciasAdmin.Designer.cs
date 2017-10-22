@@ -44,8 +44,6 @@
             this.txtFECHA = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvQYS = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNOMBREUSUARIO = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -231,25 +229,6 @@
             this.dgvQYS.Size = new System.Drawing.Size(718, 276);
             this.dgvQYS.TabIndex = 38;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(291, 98);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 20);
-            this.label3.TabIndex = 39;
-            this.label3.Text = "Nombre del usuario:";
-            // 
-            // txtNOMBREUSUARIO
-            // 
-            this.txtNOMBREUSUARIO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNOMBREUSUARIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNOMBREUSUARIO.Location = new System.Drawing.Point(295, 121);
-            this.txtNOMBREUSUARIO.Name = "txtNOMBREUSUARIO";
-            this.txtNOMBREUSUARIO.Size = new System.Drawing.Size(262, 26);
-            this.txtNOMBREUSUARIO.TabIndex = 40;
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "Nombre";
@@ -274,8 +253,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(760, 459);
-            this.Controls.Add(this.txtNOMBREUSUARIO);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvQYS);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtFECHA);
@@ -312,8 +289,6 @@
         private System.Windows.Forms.TextBox txtFECHA;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvQYS;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNOMBREUSUARIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
