@@ -27,7 +27,7 @@ namespace SVC
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new frmQuejasySugerenciasAdmin());
+                Application.Run(new frmReportes());
             }
             finally
             {

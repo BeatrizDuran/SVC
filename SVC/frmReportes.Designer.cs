@@ -28,90 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.Quejas_sugerenciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.btnTOTALVOTOS = new System.Windows.Forms.Button();
-            this.btnTOTALVOTANTES = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.panelTOTALVOTANTES = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.panel1.SuspendLayout();
-            this.panelTOTALVOTANTES.SuspendLayout();
+            this.quejassugerenciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sVCDsss = new SVC.SVCDsss();
+            this.quejassugerenciasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.quejas_sugerenciasTableAdapter1 = new SVC.SVCDsssTableAdapters.quejas_sugerenciasTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.Quejas_sugerenciasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quejassugerenciasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sVCDsss)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quejassugerenciasBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // Quejas_sugerenciasBindingSource
             // 
-            this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(-5, 48);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(873, 32);
-            this.panel1.TabIndex = 13;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkGray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::SVC.Properties.Resources.thin_1570_exit_login_import_16;
-            this.button1.Location = new System.Drawing.Point(571, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(73, 30);
-            this.button1.TabIndex = 37;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Quejas_sugerenciasBindingSource.DataMember = "Quejas_sugerencias";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(376, 20);
+            this.label1.Location = new System.Drawing.Point(374, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 25);
             this.label1.TabIndex = 14;
             this.label1.Text = "Reportes";
-            // 
-            // btnTOTALVOTOS
-            // 
-            this.btnTOTALVOTOS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTOTALVOTOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTOTALVOTOS.Location = new System.Drawing.Point(12, 86);
-            this.btnTOTALVOTOS.Name = "btnTOTALVOTOS";
-            this.btnTOTALVOTOS.Size = new System.Drawing.Size(246, 39);
-            this.btnTOTALVOTOS.TabIndex = 38;
-            this.btnTOTALVOTOS.Text = "Generar el total de votos";
-            this.btnTOTALVOTOS.UseVisualStyleBackColor = true;
-            this.btnTOTALVOTOS.Click += new System.EventHandler(this.btnTOTALVOTOS_Click);
-            // 
-            // btnTOTALVOTANTES
-            // 
-            this.btnTOTALVOTANTES.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTOTALVOTANTES.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTOTALVOTANTES.Location = new System.Drawing.Point(12, 131);
-            this.btnTOTALVOTANTES.Name = "btnTOTALVOTANTES";
-            this.btnTOTALVOTANTES.Size = new System.Drawing.Size(246, 37);
-            this.btnTOTALVOTANTES.TabIndex = 39;
-            this.btnTOTALVOTANTES.Text = "Generar total de votantes";
-            this.btnTOTALVOTANTES.UseVisualStyleBackColor = true;
-            this.btnTOTALVOTANTES.Click += new System.EventHandler(this.btnTOTALVOTANTES_Click);
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(246, 283);
-            this.webBrowser1.TabIndex = 0;
-            // 
-            // panelTOTALVOTANTES
-            // 
-            this.panelTOTALVOTANTES.Controls.Add(this.webBrowser1);
-            this.panelTOTALVOTANTES.Location = new System.Drawing.Point(12, 174);
-            this.panelTOTALVOTANTES.Name = "panelTOTALVOTANTES";
-            this.panelTOTALVOTANTES.Size = new System.Drawing.Size(246, 286);
-            this.panelTOTALVOTANTES.TabIndex = 40;
             // 
             // label2
             // 
@@ -124,10 +69,33 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Location = new System.Drawing.Point(2, 15);
-            this.reportViewer1.Name = "ReportViewer";
-            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
-            this.reportViewer1.TabIndex = 0;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.Quejas_sugerenciasBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SVC.Report1.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(12, 61);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(845, 417);
+            this.reportViewer1.TabIndex = 45;
+            // 
+            // quejassugerenciasBindingSource
+            // 
+            this.quejassugerenciasBindingSource.DataMember = "quejas_sugerencias";
+            // 
+            // sVCDsss
+            // 
+            this.sVCDsss.DataSetName = "SVCDsss";
+            this.sVCDsss.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // quejassugerenciasBindingSource1
+            // 
+            this.quejassugerenciasBindingSource1.DataMember = "quejas_sugerencias";
+            this.quejassugerenciasBindingSource1.DataSource = this.sVCDsss;
+            // 
+            // quejas_sugerenciasTableAdapter1
+            // 
+            this.quejas_sugerenciasTableAdapter1.ClearBeforeFill = true;
             // 
             // frmReportes
             // 
@@ -135,34 +103,33 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(869, 490);
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.panelTOTALVOTANTES);
-            this.Controls.Add(this.btnTOTALVOTANTES);
-            this.Controls.Add(this.btnTOTALVOTOS);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmReportes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reportes";
             this.Load += new System.EventHandler(this.Reportes_Load);
-            this.panel1.ResumeLayout(false);
-            this.panelTOTALVOTANTES.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Quejas_sugerenciasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quejassugerenciasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sVCDsss)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quejassugerenciasBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnTOTALVOTOS;
-        private System.Windows.Forms.Button btnTOTALVOTANTES;
-        private System.Windows.Forms.WebBrowser webBrowser1;
-        private System.Windows.Forms.Panel panelTOTALVOTANTES;
         private System.Windows.Forms.Label label2;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+       
+        private System.Windows.Forms.BindingSource quejassugerenciasBindingSource;
+        
+private System.Windows.Forms.BindingSource Quejas_sugerenciasBindingSource;
+        private SVCDsss sVCDsss;
+        private System.Windows.Forms.BindingSource quejassugerenciasBindingSource1;
+        private SVCDsssTableAdapters.quejas_sugerenciasTableAdapter quejas_sugerenciasTableAdapter1;
     }
 }

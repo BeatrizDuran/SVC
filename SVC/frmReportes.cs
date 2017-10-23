@@ -12,8 +12,6 @@ using SVClib;
 using MySql.Data.MySqlClient;
 using System.IO;
 using Microsoft.Reporting.WinForms;
-using Microsoft.ReportingServices.
-
 namespace SVC
 {
     public partial class frmReportes : Form
@@ -27,73 +25,68 @@ namespace SVC
 
         private void Reportes_Load(object sender, EventArgs e)
         {
-            reportViewer1.LocalReport.DataSources.Clear();
-            reportViewer1.ProcessingMode = ProcessingMode.Local;
-
-            LocalReport localReport = reportViewer1.LocalReport;
-            localReport.ReportPath = "ManagementReport.rdlc";
-            localReport.DataSources.Add(new ReportDataSource("GeneralDSManagementReport", Invoice));
-            localReport.DataSources.Add(new ReportDataSource("DetailDSManagementReport", Detail));
-
-            reportViewer1.RefreshReport();
+            // TODO: esta línea de código carga datos en la tabla 'sVCDsss.quejas_sugerencias' Puede moverla o quitarla según sea necesario.
+            this.quejas_sugerenciasTableAdapter1.Fill(this.sVCDsss.quejas_sugerencias);
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.quejas_sugerencias' Puede moverla o quitarla según sea necesario.
+            this.reportViewer1.RefreshReport();
         }
 
         private void btnTOTALVOTANTES_Click(object sender, EventArgs e)
         {
-            string path = "Reporte.html";
-            File.Delete(path);
-            using (StreamWriter SWbackup = File.CreateText(path))
-            {
-                SWbackup.WriteLine("<html><head>");
-                SWbackup.WriteLine("<style>{table border-collapse:collapse;}td, th {border: 1px solid #dddddd; text - align: left;padding: 8px; } ");
-                SWbackup.WriteLine("</style>");
-                SWbackup.WriteLine("</head><body>");
-                SWbackup.WriteLine("<h1>Reporte de Votantes</h1>");
-                SWbackup.WriteLine("<table>");
-                SWbackup.WriteLine("<tr><th>Total de votantes</th></tr>");
-                bd.con = new MySqlConnection("server=127.0.0.1;uid=root;pwd=siqueirosuth19;database=svc");
-                bd.con.Open();
-                string query = "SELECT count(idvotos) FROM registro_votos";
-                bd.comd = new MySqlCommand(query, bd.con);
-                bd.Dr = bd.comd.ExecuteReader();
-                while (bd.Dr.Read())
-                {
-                    SWbackup.WriteLine("<tr><td>" + bd.Dr.GetString(0) + "</td><tr>");
-                }
-                bd.con.Close();
-                SWbackup.WriteLine("</table>");
-                SWbackup.WriteLine("</body></html>");
-            }
-            webBrowser1.Url = new Uri(Directory.GetCurrentDirectory() + "/" + path);
+            //string path = "Reporte.html";
+            //File.Delete(path);
+            //using (StreamWriter SWbackup = File.CreateText(path))
+            //{
+            //    SWbackup.WriteLine("<html><head>");
+            //    SWbackup.WriteLine("<style>{table border-collapse:collapse;}td, th {border: 1px solid #dddddd; text - align: left;padding: 8px; } ");
+            //    SWbackup.WriteLine("</style>");
+            //    SWbackup.WriteLine("</head><body>");
+            //    SWbackup.WriteLine("<h1>Reporte de Votantes</h1>");
+            //    SWbackup.WriteLine("<table>");
+            //    SWbackup.WriteLine("<tr><th>Total de votantes</th></tr>");
+            //    bd.con = new MySqlConnection("server=127.0.0.1;uid=root;pwd=siqueirosuth19;database=svc");
+            //    bd.con.Open();
+            //    string query = "SELECT count(idvotos) FROM registro_votos";
+            //    bd.comd = new MySqlCommand(query, bd.con);
+            //    bd.Dr = bd.comd.ExecuteReader();
+            //    while (bd.Dr.Read())
+            //    {
+            //        SWbackup.WriteLine("<tr><td>" + bd.Dr.GetString(0) + "</td><tr>");
+            //    }
+            //    bd.con.Close();
+            //    SWbackup.WriteLine("</table>");
+            //    SWbackup.WriteLine("</body></html>");
+            //}
+            //webBrowser1.Url = new Uri(Directory.GetCurrentDirectory() + "/" + path);
         }
 
         private void btnTOTALVOTOS_Click(object sender, EventArgs e)
         {
-            string path = "Reporte.html";
-            File.Delete(path);
-            using (StreamWriter SWbackup = File.CreateText(path))
-            {
-                SWbackup.WriteLine("<html><head>");
-                SWbackup.WriteLine("<style>{table border-collapse:collapse;}td, th {border: 1px solid #dddddd; text - align: left;padding: 8px; } ");
-                SWbackup.WriteLine("</style>");
-                SWbackup.WriteLine("</head><body>");
-                SWbackup.WriteLine("<h1>Reporte de Votos</h1>");
-                SWbackup.WriteLine("<table>");
-                SWbackup.WriteLine("<tr><th>Total de votos</th></tr>");
-                bd.con = new MySqlConnection("server=127.0.0.1;uid=root;pwd=siqueirosuth19;database=svc");
-                bd.con.Open();
-                string query = "SELECT sum(idCandidato) FROM registro_votos";
-                bd.comd = new MySqlCommand(query, bd.con);
-                bd.Dr = bd.comd.ExecuteReader();
-                while (bd.Dr.Read())
-                {
-                    SWbackup.WriteLine("<tr><td>" + bd.Dr.GetString(0) +"</td><tr>");
-                }
-                bd.con.Close();
-                SWbackup.WriteLine("</table>");
-                SWbackup.WriteLine("</body></html>");
-            }
-            webBrowser1.Url = new Uri(Directory.GetCurrentDirectory() + "/" + path);
+            //string path = "Reporte.html";
+            //File.Delete(path);
+            //using (StreamWriter SWbackup = File.CreateText(path))
+            //{
+            //    SWbackup.WriteLine("<html><head>");
+            //    SWbackup.WriteLine("<style>{table border-collapse:collapse;}td, th {border: 1px solid #dddddd; text - align: left;padding: 8px; } ");
+            //    SWbackup.WriteLine("</style>");
+            //    SWbackup.WriteLine("</head><body>");
+            //    SWbackup.WriteLine("<h1>Reporte de Votos</h1>");
+            //    SWbackup.WriteLine("<table>");
+            //    SWbackup.WriteLine("<tr><th>Total de votos</th></tr>");
+            //    bd.con = new MySqlConnection("server=127.0.0.1;uid=root;pwd=siqueirosuth19;database=svc");
+            //    bd.con.Open();
+            //    string query = "SELECT sum(idCandidato) FROM registro_votos";
+            //    bd.comd = new MySqlCommand(query, bd.con);
+            //    bd.Dr = bd.comd.ExecuteReader();
+            //    while (bd.Dr.Read())
+            //    {
+            //        SWbackup.WriteLine("<tr><td>" + bd.Dr.GetString(0) +"</td><tr>");
+            //    }
+            //    bd.con.Close();
+            //    SWbackup.WriteLine("</table>");
+            //    SWbackup.WriteLine("</body></html>");
+            //}
+            //webBrowser1.Url = new Uri(Directory.GetCurrentDirectory() + "/" + path);
         }
 
         private void button1_Click(object sender, EventArgs e)
