@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="SVCDsss" targetNamespace="http://tempuri.org/SVCDsss.xsd" xmlns:mstns="http://tempuri.org/SVCDsss.xsd" xmlns="http://tempuri.org/SVCDsss.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -40,7 +40,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="SVCDsss" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="SVCDsss" msprop:Generator_UserDSName="SVCDsss">
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="quejas_sugerencias" msprop:Generator_TableClassName="quejas_sugerenciasDataTable" msprop:Generator_TableVarName="tablequejas_sugerencias" msprop:Generator_TablePropName="quejas_sugerencias" msprop:Generator_RowDeletingName="quejas_sugerenciasRowDeleting" msprop:Generator_RowChangingName="quejas_sugerenciasRowChanging" msprop:Generator_RowEvHandlerName="quejas_sugerenciasRowChangeEventHandler" msprop:Generator_RowDeletedName="quejas_sugerenciasRowDeleted" msprop:Generator_UserTableName="quejas_sugerencias" msprop:Generator_RowChangedName="quejas_sugerenciasRowChanged" msprop:Generator_RowEvArgName="quejas_sugerenciasRowChangeEvent" msprop:Generator_RowClassName="quejas_sugerenciasRow">

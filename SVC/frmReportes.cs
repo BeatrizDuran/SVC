@@ -25,8 +25,8 @@ namespace SVC
 
         private void Reportes_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'sVCDsss.quejas_sugerencias' Puede moverla o quitarla según sea necesario.
-            this.quejas_sugerenciasTableAdapter1.Fill(this.sVCDsss.quejas_sugerencias);
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.quejas_sugerencias' Puede moverla o quitarla según sea necesario.
+            this.quejas_sugerenciasTableAdapter.Fill(this.dataSet1.quejas_sugerencias);
             // TODO: esta línea de código carga datos en la tabla 'dataSet1.quejas_sugerencias' Puede moverla o quitarla según sea necesario.
             this.reportViewer1.RefreshReport();
         }
