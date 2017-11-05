@@ -160,18 +160,6 @@
     <Compile Include="frmMesaDirectiva.Designer.cs">
       <DependentUpon>frmMesaDirectiva.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNuevoAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNuevoAdmin.Designer.cs">
-      <DependentUpon>frmNuevoAdmin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmNuevoLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNuevoLogin.Designer.cs">
-      <DependentUpon>frmNuevoLogin.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmPartidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,12 +228,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMesaDirectiva.resx">
       <DependentUpon>frmMesaDirectiva.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmNuevoAdmin.resx">
-      <DependentUpon>frmNuevoAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmNuevoLogin.resx">
-      <DependentUpon>frmNuevoLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPartidos.resx">
       <DependentUpon>frmPartidos.cs</DependentUpon>

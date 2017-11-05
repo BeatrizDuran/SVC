@@ -19,7 +19,8 @@ namespace SVC
     public partial class frmUsuarios : Form
     {
         ConnectionMySql BD = new ConnectionMySql();
-        libUsuarios u =new libUsuarios();       
+        libUsuarios u =new libUsuarios();
+        public static frmUsuarios _instanceUsuarios;
         public void administrador()
         {
             txtCLAVE.Enabled = true;
@@ -28,6 +29,17 @@ namespace SVC
         public frmUsuarios()
         {
             InitializeComponent();
+        }
+        public frmUsuarios instance
+        {
+            get
+            {
+                if (frmUsuarios._instanceUsuarios == null)
+                {
+                    frmUsuarios._instanceUsuarios = new frmUsuarios();
+                }
+                return frmUsuarios._instanceUsuarios;
+            }
         }
         private void btnSALIR_Click_1(object sender, EventArgs e)
         {
@@ -155,9 +167,11 @@ namespace SVC
                 pdf.Open();
                 //Inicio de la generacion del pdfe
                 PdfPTable Table = new PdfPTable(10);
-                PdfPCell Titulo = new PdfPCell(new Phrase("Catalogo de usuarios"));
-                Titulo.HorizontalAlignment = 1;
-                Titulo.Colspan = 10;
+                PdfPCell Titulo = new PdfPCell(new Phrase("Catalogo de usuarios"))
+                {
+                    HorizontalAlignment = 1,
+                    Colspan = 10
+                };
                 Table.AddCell(Titulo);
                 Table.AddCell("Nombres");
                 Table.AddCell("Apellido Paterno");

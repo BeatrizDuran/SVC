@@ -20,10 +20,22 @@ namespace SVC
     public partial class frmMesaDirectiva : Form
     {
         ConnectionMySql BD = new ConnectionMySql();
-        libMesaDirectiva m = new libMesaDirectiva(); 
+        libMesaDirectiva m = new libMesaDirectiva();
+        public static frmMesaDirectiva _instanceMesaDirectiva;
         public frmMesaDirectiva()
         {
             InitializeComponent();
+        }
+        public frmMesaDirectiva instance
+        {
+            get
+            {
+                if (frmMesaDirectiva._instanceMesaDirectiva == null)
+                {
+                    frmMesaDirectiva._instanceMesaDirectiva = new frmMesaDirectiva();
+                }
+                return frmMesaDirectiva._instanceMesaDirectiva;
+            }
         }
         private void mesa_load()
         {
@@ -87,9 +99,11 @@ namespace SVC
                 pdf.Open();
                 //Inicio de la generacion del pdfe
                 PdfPTable Table = new PdfPTable(9);
-                PdfPCell Titulo = new PdfPCell(new Phrase("Catalogo de integrantes"));
-                Titulo.HorizontalAlignment = 1;
-                Titulo.Colspan = 9;
+                PdfPCell Titulo = new PdfPCell(new Phrase("Catalogo de integrantes"))
+                {
+                    HorizontalAlignment = 1,
+                    Colspan = 9
+                };
                 Table.AddCell(Titulo);
                 Table.AddCell("Clave");
                 Table.AddCell("Dirección");

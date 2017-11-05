@@ -17,6 +17,8 @@ using libValidaciones;
 using System.Text.RegularExpressions;
 using System.Data.SqlClient;
 using Npgsql;
+using System.Threading; 
+
 namespace SVC
 {
     public partial class frmQuejasySugerenciasAdmin : Form
@@ -25,13 +27,24 @@ namespace SVC
         ConnectionMySql c = new ConnectionMySql();
         ConnectionSQLServer sql = new ConnectionSQLServer();
         libQuejasySugerencias q = new libQuejasySugerencias();
-       
+        public static frmQuejasySugerenciasAdmin _instanceQYSAdmin;
         public frmQuejasySugerenciasAdmin()
         {
             InitializeComponent();
         }
+        public frmQuejasySugerenciasAdmin instance
+        {
+            get
+            {
+                if (frmQuejasySugerenciasAdmin._instanceQYSAdmin == null)
+                {
+                    frmQuejasySugerenciasAdmin._instanceQYSAdmin = new frmQuejasySugerenciasAdmin();
+                }
+                return frmQuejasySugerenciasAdmin._instanceQYSAdmin;
+            }
+        }
         /// <summary>
-        /// Métodos que permite la realizacion de las acciones en cada boton
+        /// Métodos que permite la realizacion de las acciones en cada boton APLICACION MUTEX
         /// </summary>
         private void mysql_load()
         {
@@ -47,6 +60,9 @@ namespace SVC
             }
             c.con.Close();
         }
+        /// <summary>
+        /// APLICACION DEL MUTEX
+        /// </summary>
         private void sql_load()
         {
             sql.con = new SqlConnection("Data Source=BEATRIZDURAN-PC\\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=SVC");
@@ -59,6 +75,25 @@ namespace SVC
                 dgvQYS.Rows.Add(sql.Dr.GetString(0), sql.Dr.GetString(1), sql.Dr.GetString(2));
             }
             sql.con.Close();
+        }
+        /// <summary>
+        /// APLICACION DE MUTEX
+        /// </summary>
+        private void pg_Load()
+        {
+            pg.con1 = new NpgsqlConnection("Server=127.0.0.1; Port=5432; User id= postgres; Password=siqueirosuth19; Database=SVC");
+            pg.con1.Open();
+            string quer = "SELECT * FROM quejas_sugerencias";
+            pg.comd = new NpgsqlCommand(quer, pg.con1);
+            pg.Dr = pg.comd.ExecuteReader();
+            if (pg.Dr.HasRows == true)
+            {
+                while (pg.Dr.Read())
+                {
+                    dgvQYS.Rows.Add(pg.Dr.GetValue(0).ToString(), pg.Dr.GetValue(1).ToString(), pg.Dr.GetValue(2).ToString());
+                }
+            }
+            pg.con1.Close();
         }
         private void mysql_eliminar()
         {
@@ -91,7 +126,7 @@ namespace SVC
             dgvQYS.Rows.Clear();
             c.con = new MySqlConnection("server=127.0.0.1;uid=root;pwd=siqueirosuth19;database=SVC");
             c.con.Open();
-            string query = "SELECT * FROM quejas_sugerencias WHERE Fecha='" + txtFECHA.Text + "'";
+            string query = "SELECT * FROM quejas_sugerencias WHERE Fecha='" + dtpQYS.Text + "'";
             c.comd = new MySqlCommand(query, c.con);
             c.Dr = c.comd.ExecuteReader();
             while (c.Dr.Read())
@@ -105,7 +140,7 @@ namespace SVC
             dgvQYS.Rows.Clear();
             sql.con = new SqlConnection("Data Source=BEATRIZDURAN-PC;Integrated Security=SSPI;Initial Catalog=SVC");
             sql.con.Open();
-            string query1 = "SELECT * FROM quejas_sugerencias WHERE Fecha='" + txtFECHA.Text + "'";
+            string query1 = "SELECT * FROM quejas_sugerencias WHERE Fecha='" + dtpQYS.Text + "'";
             sql.comd = new SqlCommand(query1, sql.con);
             sql.Dr = sql.comd.ExecuteReader();
             while (sql.Dr.Read())
@@ -132,7 +167,7 @@ namespace SVC
             dgvQYS.Rows.Clear();
             pg.con1 = new NpgsqlConnection("Server=127.0.0.1; Port=5432; User id= postgres; Password=siqueirosuth19; Database=SVC");
             pg.con1.Open();
-            string quer = "SELECT * FROM public.quejas_sugerencias WHERE fecha='" + txtFECHA.Text + "';";
+            string quer = "SELECT * FROM public.quejas_sugerencias WHERE fecha='" + dtpQYS.Text + "';";
                 pg.comd = new NpgsqlCommand(quer, pg.con1);
                 pg.Dr = pg.comd.ExecuteReader();
                 while (pg.Dr.Read())
@@ -143,44 +178,23 @@ namespace SVC
             
            pg.con1.Close();
         }
-        private void pg_Load()
-        {
-            pg.con1 = new NpgsqlConnection("Server=127.0.0.1; Port=5432; User id= postgres; Password=siqueirosuth19; Database=SVC");
-            pg.con1.Open();
-            string quer = "SELECT * FROM quejas_sugerencias";
-            pg.comd = new NpgsqlCommand(quer, pg.con1);
-            pg.Dr = pg.comd.ExecuteReader();
-            if (pg.Dr.HasRows == true)
-            {
-                while (pg.Dr.Read())
-                {
-                    dgvQYS.Rows.Add(pg.Dr.GetValue(0).ToString(), pg.Dr.GetValue(1).ToString(), pg.Dr.GetValue(2).ToString());
-                }
-            }
-            pg.con1.Close();
-        }
 
         private void QYS_Load(object sender, EventArgs e)
         {
-           // mysql_load();
-           // sql_load();
-            pg_Load();
+            mysql_load();
         }
         private void btnELIMINAR_Click(object sender, EventArgs e)
         {
-          // mysql_eliminar();
-            //sql_eliminar();
+           mysql_eliminar();
+           sql_eliminar();
           pg_eliminar();
         }
         private void btnBUSCAR_Click(object sender, EventArgs e)
         {
-          // mysql_buscar();
-          //sql_buscar();
-          pg_buscar();
+           mysql_buscar();
         }
         private void btnLIMPIAR_Click(object sender, EventArgs e)
         {
-            txtFECHA.Clear();
             QYS_Load(sender, e);
         }
         private void btnGENERARPDF_Click(object sender, EventArgs e)
@@ -192,9 +206,11 @@ namespace SVC
                 pdf.Open();
                 //Inicio de la generacion del pdfe
                 PdfPTable Table = new PdfPTable(3);
-                PdfPCell Titulo = new PdfPCell(new Phrase("Quejas y sugerencias"));
-                Titulo.HorizontalAlignment = 1;
-                Titulo.Colspan = 3;
+                PdfPCell Titulo = new PdfPCell(new Phrase("Quejas y sugerencias"))
+                {
+                    HorizontalAlignment = 1,
+                Colspan = 3
+            };
                 Table.AddCell(Titulo);
                 Table.AddCell("Nombre");
                 Table.AddCell("Descripcion");

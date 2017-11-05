@@ -16,12 +16,24 @@ namespace SVC
     public partial class frmAlcadia : Form
     {
         ConnectionMySql BD = new ConnectionMySql();
+
         libVotos v = new libVotos();
+        public static frmAlcadia _alcaldiaInstance;
         public frmAlcadia()
         {
             InitializeComponent();
         }
-
+        public frmAlcadia instance
+        {
+            get
+            {
+                if (frmAlcadia._alcaldiaInstance == null)
+                {
+                    frmAlcadia._alcaldiaInstance = new frmAlcadia();
+                }
+                return frmAlcadia._alcaldiaInstance;
+            }
+        }
         private void Alcadia_Load(object sender, EventArgs e)
         {
             label5.Text = frmLogin.ClaveElector;

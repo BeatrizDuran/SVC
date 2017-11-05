@@ -18,9 +18,21 @@ namespace SVC
     public partial class frmQuejasySugerencias : Form
     {
         libQuejasySugerencias q = new libQuejasySugerencias();
+        public static frmQuejasySugerencias _instanceQYS;
         public frmQuejasySugerencias()
         {
             InitializeComponent();
+        }
+        public frmQuejasySugerencias instance
+        {
+            get
+            {
+                if (frmQuejasySugerencias._instanceQYS == null)
+                {
+                    frmQuejasySugerencias._instanceQYS = new frmQuejasySugerencias();
+                }
+                return frmQuejasySugerencias._instanceQYS;
+            }
         }
         private void mysql_agregar()
         {

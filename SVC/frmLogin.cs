@@ -38,6 +38,7 @@ namespace SVC
                 return frmLogin._instance;
             }
         }
+      
         private void cerrarsesion()
         {
             if (MessageBox.Show("¿Desea cerrar sesión?", "Cerrar Sesion", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
@@ -134,7 +135,7 @@ namespace SVC
         private void btnALCADIA_Click(object sender, EventArgs e)
         {
             frmAlcadia a = new frmAlcadia();
-            a.Show();
+            a.instance.Show();
             this.Hide();
         }
         private void btnGOBERNATURA_Click(object sender, EventArgs e)

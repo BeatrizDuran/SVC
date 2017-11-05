@@ -17,15 +17,27 @@ namespace SVC
     {
         ConnectionMySql BD = new ConnectionMySql();
         libVotos v = new libVotos();
+        public static frmPresidencia _instancePresidencia;
         public frmPresidencia()
         {
             InitializeComponent();
+        }
+        public frmPresidencia instance
+        {
+            get
+            {
+                if (frmPresidencia._instancePresidencia == null)
+                {
+                    frmPresidencia._instancePresidencia = new frmPresidencia();
+                }
+                return frmPresidencia._instancePresidencia;
+            }
         }
         //regresar al inicio 
         private void button2_Click(object sender, EventArgs e)
         {
             frmLogin a  = new frmLogin();                      
-            a.Show();
+            a.instance.Show();
             a.botones();
             this.Hide();
         }

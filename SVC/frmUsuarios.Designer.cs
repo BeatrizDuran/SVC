@@ -218,6 +218,7 @@
             // 
             // cbDIA
             // 
+            this.cbDIA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDIA.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbDIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDIA.FormattingEnabled = true;
@@ -270,6 +271,7 @@
             // 
             // cbMES
             // 
+            this.cbMES.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMES.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbMES.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMES.FormattingEnabled = true;
@@ -374,6 +376,7 @@
             // 
             // cbTIPOUSUARIO
             // 
+            this.cbTIPOUSUARIO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTIPOUSUARIO.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbTIPOUSUARIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTIPOUSUARIO.FormattingEnabled = true;
@@ -718,6 +721,7 @@
             // 
             // cbUSUARIOOTRO
             // 
+            this.cbUSUARIOOTRO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUSUARIOOTRO.Enabled = false;
             this.cbUSUARIOOTRO.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbUSUARIOOTRO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -761,7 +765,7 @@
             this.txtPASSWORD.TabIndex = 33;
             this.txtPASSWORD.UseSystemPasswordChar = true;
             // 
-            // USUARIOS
+            // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -798,7 +802,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "USUARIOS";
+            this.Name = "frmUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "USUARIOS";
             this.Load += new System.EventHandler(this.USUARIOS_Load);

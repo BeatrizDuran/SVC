@@ -118,6 +118,7 @@ namespace SVC
             u.ShowDialog();
             this.Hide();
         }
+
         private void btnSALIR_Click(object sender, EventArgs e)
         {
             frmLogin c = new frmLogin();

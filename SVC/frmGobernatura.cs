@@ -17,11 +17,22 @@ namespace SVC
     {
         ConnectionMySql BD = new ConnectionMySql();
         libVotos v = new libVotos();
+        public static frmGobernatura _instanceGobernatura;
         public frmGobernatura()
         {
             InitializeComponent();
         }
-
+        public frmGobernatura instance
+        {
+            get
+            {
+                if (frmGobernatura._instanceGobernatura == null)
+                {
+                    frmGobernatura._instanceGobernatura = new frmGobernatura();
+                }
+                return frmGobernatura._instanceGobernatura;
+            }
+        }
         private void Gobernatura_Load(object sender, EventArgs e)
         {
             label5.Text = frmLogin.ClaveElector;

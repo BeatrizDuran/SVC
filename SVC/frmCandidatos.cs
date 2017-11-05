@@ -21,11 +21,22 @@ namespace SVC
     {
         ConnectionMySql bd = new ConnectionMySql();
         libCandidatos c = new libCandidatos();
+        public static frmCandidatos _instanceCandidatos;
         public frmCandidatos()
         {
             InitializeComponent();
         }
-
+        public frmCandidatos instance
+        {
+            get
+            {
+                if (frmCandidatos._instanceCandidatos == null)
+                {
+                    frmCandidatos._instanceCandidatos = new frmCandidatos();
+                }
+                return frmCandidatos._instanceCandidatos;
+            }
+        }
         private void btnAGREGAR_Click(object sender, EventArgs e)
         {
             if (c.registroCandidatos(txtCLAVE.Text,txtNOMBRE.Text,txtAPELLIDOP.Text,txtAPELLIDOM.Text,

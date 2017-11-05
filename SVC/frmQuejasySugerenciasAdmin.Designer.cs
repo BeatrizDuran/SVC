@@ -41,12 +41,12 @@
             this.btnLIMPIAR = new System.Windows.Forms.Button();
             this.btnELIMINAR = new System.Windows.Forms.Button();
             this.btnBUSCAR = new System.Windows.Forms.Button();
-            this.txtFECHA = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvQYS = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtpQYS = new System.Windows.Forms.DateTimePicker();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQYS)).BeginInit();
             this.SuspendLayout();
@@ -194,15 +194,6 @@
             this.btnBUSCAR.UseVisualStyleBackColor = false;
             this.btnBUSCAR.Click += new System.EventHandler(this.btnBUSCAR_Click);
             // 
-            // txtFECHA
-            // 
-            this.txtFECHA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFECHA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFECHA.Location = new System.Drawing.Point(23, 121);
-            this.txtFECHA.Name = "txtFECHA";
-            this.txtFECHA.Size = new System.Drawing.Size(262, 26);
-            this.txtFECHA.TabIndex = 32;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -247,15 +238,23 @@
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
+            // dtpQYS
+            // 
+            this.dtpQYS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpQYS.Location = new System.Drawing.Point(23, 121);
+            this.dtpQYS.Name = "dtpQYS";
+            this.dtpQYS.Size = new System.Drawing.Size(291, 26);
+            this.dtpQYS.TabIndex = 39;
+            // 
             // frmQuejasySugerenciasAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(760, 459);
+            this.Controls.Add(this.dtpQYS);
             this.Controls.Add(this.dgvQYS);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtFECHA);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -286,11 +285,11 @@
         private System.Windows.Forms.Button btnLIMPIAR;
         private System.Windows.Forms.Button btnELIMINAR;
         private System.Windows.Forms.Button btnBUSCAR;
-        private System.Windows.Forms.TextBox txtFECHA;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvQYS;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DateTimePicker dtpQYS;
     }
 }

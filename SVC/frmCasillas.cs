@@ -22,9 +22,21 @@ namespace SVC
     {
         ConnectionMySql BD = new ConnectionMySql();
         libCasillas c = new libCasillas();
+        public static frmCasillas _instanceCasillas;
         public frmCasillas()
         {
             InitializeComponent();
+        }
+        public frmCasillas instance
+        {
+            get
+            {
+                if (frmCasillas._instanceCasillas == null)
+                {
+                    frmCasillas._instanceCasillas = new frmCasillas();
+                }
+                return frmCasillas._instanceCasillas;
+            }
         }
         /// <summary>
         /// carga los elementos en el modulo de las casillas

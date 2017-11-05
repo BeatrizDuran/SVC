@@ -21,9 +21,21 @@ namespace SVC
     {
         ConnectionMySql BD = new ConnectionMySql();
         libPartidos p = new libPartidos();
+        public static frmPartidos _instancePartidos;
         public frmPartidos()
         {
             InitializeComponent();
+        }
+        public frmPartidos instance
+        {
+            get
+            {
+                if (frmPartidos._instancePartidos == null)
+                {
+                    frmPartidos._instancePartidos = new frmPartidos();
+                }
+                return frmPartidos._instancePartidos;
+            }
         }
         private string ruta = "";
         private void partidos()
@@ -93,9 +105,11 @@ namespace SVC
                 pdf.Open();
                 //Inicio de la generacion del pdfe
                 PdfPTable Table = new PdfPTable(9);
-                PdfPCell Titulo = new PdfPCell(new Phrase("Catalogo de partidos"));
-                Titulo.HorizontalAlignment = 1;
-                Titulo.Colspan = 9;
+                PdfPCell Titulo = new PdfPCell(new Phrase("Catalogo de partidos"))
+                {
+                    HorizontalAlignment = 1,
+                    Colspan = 9
+                };
                 Table.AddCell(Titulo);
                 Table.AddCell("Clave");
                 Table.AddCell("Partido Politico");

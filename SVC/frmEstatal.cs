@@ -17,11 +17,22 @@ namespace SVC
     {
         ConnectionMySql BD = new ConnectionMySql();
         libVotos v = new libVotos();
+        public static frmEstatal _instanceEstatal;
         public frmEstatal()
         {
             InitializeComponent();
         }
-
+        public frmEstatal instance
+        {
+            get
+            {
+                if (frmEstatal._instanceEstatal == null)
+                {
+                    frmEstatal._instanceEstatal = new frmEstatal();
+                }
+                return frmEstatal._instanceEstatal;
+            }
+        }
         private void btnVOTAR1_Click(object sender, EventArgs e)
         {
          
