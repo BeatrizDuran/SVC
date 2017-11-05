@@ -43,11 +43,13 @@ namespace SVC
                 return frmQuejasySugerenciasAdmin._instanceQYSAdmin;
             }
         }
+        Mutex m = new Mutex();
         /// <summary>
         /// Métodos que permite la realizacion de las acciones en cada boton APLICACION MUTEX
         /// </summary>
         private void mysql_load()
         {
+            m.WaitOne();
             dgvQYS.Rows.Clear();
             c.con = new MySqlConnection("server=127.0.0.1;uid=root;pwd=siqueirosuth19;database=SVC");
             c.con.Open();
@@ -59,12 +61,14 @@ namespace SVC
                 dgvQYS.Rows.Add(c.Dr.GetString(0), c.Dr.GetString(1), c.Dr.GetString(2));
             }
             c.con.Close();
+            m.ReleaseMutex();
         }
         /// <summary>
         /// APLICACION DEL MUTEX
         /// </summary>
         private void sql_load()
         {
+            m.WaitOne();
             sql.con = new SqlConnection("Data Source=BEATRIZDURAN-PC\\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=SVC");
             sql.con.Open();
             string q = "SELECT * FROM quejas_sugerencias";
@@ -75,12 +79,14 @@ namespace SVC
                 dgvQYS.Rows.Add(sql.Dr.GetString(0), sql.Dr.GetString(1), sql.Dr.GetString(2));
             }
             sql.con.Close();
+            m.ReleaseMutex();
         }
         /// <summary>
         /// APLICACION DE MUTEX
         /// </summary>
         private void pg_Load()
         {
+            m.WaitOne();
             pg.con1 = new NpgsqlConnection("Server=127.0.0.1; Port=5432; User id= postgres; Password=siqueirosuth19; Database=SVC");
             pg.con1.Open();
             string quer = "SELECT * FROM quejas_sugerencias";
@@ -94,6 +100,7 @@ namespace SVC
                 }
             }
             pg.con1.Close();
+            m.ReleaseMutex();
         }
         private void mysql_eliminar()
         {
