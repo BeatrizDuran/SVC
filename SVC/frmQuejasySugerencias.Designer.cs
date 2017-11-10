@@ -132,7 +132,7 @@
             // 
             this.lblFECHA.AutoSize = true;
             this.lblFECHA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFECHA.Location = new System.Drawing.Point(453, 87);
+            this.lblFECHA.Location = new System.Drawing.Point(455, 85);
             this.lblFECHA.Name = "lblFECHA";
             this.lblFECHA.Size = new System.Drawing.Size(58, 20);
             this.lblFECHA.TabIndex = 8;
@@ -149,7 +149,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(749, 392);
+            this.ClientSize = new System.Drawing.Size(749, 411);
             this.Controls.Add(this.lblFECHA);
             this.Controls.Add(this.btnMENUPRINCIPAL);
             this.Controls.Add(this.btnENVIAR);

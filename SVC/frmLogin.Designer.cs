@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.btnSALIR = new System.Windows.Forms.Button();
             this.btnPRESIDENCIAL = new System.Windows.Forms.Button();
@@ -48,6 +49,8 @@
             this.btnCERRARSESIÓN = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblFECHA = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.plVOTOPRESIDENCIAL.SuspendLayout();
@@ -110,7 +113,7 @@
             this.btnACCEDERLOGIN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnACCEDERLOGIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnACCEDERLOGIN.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnACCEDERLOGIN.Location = new System.Drawing.Point(803, 31);
+            this.btnACCEDERLOGIN.Location = new System.Drawing.Point(803, 45);
             this.btnACCEDERLOGIN.Name = "btnACCEDERLOGIN";
             this.btnACCEDERLOGIN.Size = new System.Drawing.Size(215, 40);
             this.btnACCEDERLOGIN.TabIndex = 6;
@@ -284,12 +287,30 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // Login
+            // lblFECHA
+            // 
+            this.lblFECHA.AutoSize = true;
+            this.lblFECHA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFECHA.Location = new System.Drawing.Point(799, 9);
+            this.lblFECHA.Name = "lblFECHA";
+            this.lblFECHA.Size = new System.Drawing.Size(58, 20);
+            this.lblFECHA.TabIndex = 27;
+            this.lblFECHA.Text = "Fecha:";
+
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1101, 597);
+            this.Controls.Add(this.lblFECHA);
             this.Controls.Add(this.btnCERRARSESIÓN);
             this.Controls.Add(this.plVOTOPRESIDENCIAL);
             this.Controls.Add(this.pictureBox2);
@@ -303,7 +324,7 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Login";
+            this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "c";
             this.Load += new System.EventHandler(this.Login_Load);
@@ -339,5 +360,7 @@
         private System.Windows.Forms.Button btnESTATAL;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCERRARSESIÓN;
+        private System.Windows.Forms.Label lblFECHA;
+        private System.Windows.Forms.Timer timer2;
     }
 }

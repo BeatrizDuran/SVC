@@ -15,8 +15,11 @@ namespace SVC
     public partial class frmLogin : Form
     {
         ConnectionMySql obtenerDatos = new ConnectionMySql();
-        public static string nombre, ApellidoP, ApellidoM,ClaveElector;
+        public static string nombre, ApellidoP, ApellidoM,ClaveElector;//variables declaradas para utilizarlas en el acceso al sistema
         public static frmLogin _instance;
+        /// <summary>
+        /// Botones habilitados
+        /// </summary>
         public void botones()
         {
             btnALCADIA.Enabled = true;
@@ -38,7 +41,9 @@ namespace SVC
                 return frmLogin._instance;
             }
         }
-      
+       /// <summary>
+      /// Permite el cierre de sesión 
+      /// </summary>
         private void cerrarsesion()
         {
             if (MessageBox.Show("¿Desea cerrar sesión?", "Cerrar Sesion", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
@@ -53,6 +58,9 @@ namespace SVC
                 MessageBox.Show("Sesión cerrada");
             }
         }
+        /// <summary>
+        /// Método que permite el acceso de los tres niveles de usuario al sistema
+        /// </summary>
         private void acceder()
         {
             try
@@ -70,7 +78,6 @@ namespace SVC
                 {
                     while (obtenerDatos.Dr.Read())
                     {
-                        // MessageBox.Show(lector.GetString(2) + lector.GetString(3) + lector.GetString(4));
                         nombre = obtenerDatos.Dr.GetString(0);
                         ApellidoM = obtenerDatos.Dr.GetString(1);
                         ApellidoP = obtenerDatos.Dr.GetString(2);
@@ -80,7 +87,6 @@ namespace SVC
                             botones();
                             txtCONTRASENA.Text = "";
                             txtUSUARIO.Text = "Ingrese su clave de elector";
-                            //new SesionAdministrador().ShowDialog();
                             if (MessageBox.Show("Sesión iniciada!, ¿Desea entrar al modulo de administrador?", "Inicio de sesión", MessageBoxButtons.OKCancel) == DialogResult.OK)
                             {
                                 frmSesionAdministrador b = new frmSesionAdministrador();
@@ -93,14 +99,12 @@ namespace SVC
                             botones();
                             txtCONTRASENA.Text = "";
                             txtUSUARIO.Text = "Ingrese su clave de elector";
-                           // MessageBox.Show("Sesión iniciada!", "Inicio de sesión", MessageBoxButtons.OK);
                         }
                         if (obtenerDatos.Dr.GetString(12) == "PRESIDENTE M.D.")
                         {
                             botones();
                             txtCONTRASENA.Text = "";
                             txtUSUARIO.Text = "Ingrese su clave de elector";
-                            //new SesionAdministrador().ShowDialog();
                             if (MessageBox.Show("Sesión iniciada!, ¿Desea entrar al modulo de Presidete Mesa directiva?", "Inicio de sesión", MessageBoxButtons.OKCancel) == DialogResult.OK)
                             {
                                 frmSesionAdministrador b = new frmSesionAdministrador();
@@ -152,7 +156,11 @@ namespace SVC
         }
         private void Login_Load(object sender, EventArgs e)
         {
-
+            lblFECHA.Text = DateTime.Now.ToLocalTime().ToString();
+        }
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            lblFECHA.Text = DateTime.Now.ToLocalTime().ToString();
         }
         private void btnCERRARSESIÓN_Click(object sender, EventArgs e)
         {

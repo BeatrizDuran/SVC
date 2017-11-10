@@ -23,6 +23,7 @@ namespace SVC
 {
     public partial class frmQuejasySugerenciasAdmin : Form
     {
+        ServidoresBD BDs = new ServidoresBD();
         ConnectionPostgres pg = new ConnectionPostgres();
         ConnectionMySql c = new ConnectionMySql();
         ConnectionSQLServer sql = new ConnectionSQLServer();
@@ -43,13 +44,8 @@ namespace SVC
                 return frmQuejasySugerenciasAdmin._instanceQYSAdmin;
             }
         }
-        Mutex m = new Mutex();
-        /// <summary>
-        /// Métodos que permite la realizacion de las acciones en cada boton APLICACION MUTEX
-        /// </summary>
         private void mysql_load()
         {
-            m.WaitOne();
             dgvQYS.Rows.Clear();
             c.con = new MySqlConnection("server=127.0.0.1;uid=root;pwd=siqueirosuth19;database=SVC");
             c.con.Open();
@@ -61,15 +57,10 @@ namespace SVC
                 dgvQYS.Rows.Add(c.Dr.GetString(0), c.Dr.GetString(1), c.Dr.GetString(2));
             }
             c.con.Close();
-            m.ReleaseMutex();
         }
-        /// <summary>
-        /// APLICACION DEL MUTEX
-        /// </summary>
         private void sql_load()
         {
-            m.WaitOne();
-            sql.con = new SqlConnection("Data Source=BEATRIZDURAN-PC\\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=SVC");
+            sql.con = new SqlConnection("Data Source=BeatrizDuran-PC\\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=SVC");
             sql.con.Open();
             string q = "SELECT * FROM quejas_sugerencias";
             sql.comd = new SqlCommand(q, sql.con);
@@ -79,14 +70,9 @@ namespace SVC
                 dgvQYS.Rows.Add(sql.Dr.GetString(0), sql.Dr.GetString(1), sql.Dr.GetString(2));
             }
             sql.con.Close();
-            m.ReleaseMutex();
         }
-        /// <summary>
-        /// APLICACION DE MUTEX
-        /// </summary>
         private void pg_Load()
         {
-            m.WaitOne();
             pg.con1 = new NpgsqlConnection("Server=127.0.0.1; Port=5432; User id= postgres; Password=siqueirosuth19; Database=SVC");
             pg.con1.Open();
             string quer = "SELECT * FROM quejas_sugerencias";
@@ -100,7 +86,6 @@ namespace SVC
                 }
             }
             pg.con1.Close();
-            m.ReleaseMutex();
         }
         private void mysql_eliminar()
         {
@@ -185,16 +170,53 @@ namespace SVC
             
            pg.con1.Close();
         }
+        private void eliminarRepetidos()
+        {
+            int m = 0;
+            int n = dgvQYS.Rows.Count;
+            int k = 0;
+            string unaFila, estaFila;
+            while (m <= n)
+            {
+                k = 1;
+                estaFila = String.Empty;
+                // Relleno la cadena con los datos de toda la fila
+                for (int i = 0; i < dgvQYS.Columns.Count-1; i++)
+                    estaFila = String.Concat(estaFila, dgvQYS.Rows[m].Cells[i].Value.ToString());
+                while (k <= dgvQYS.Rows.Count - 1)
+                {
+                    unaFila = String.Empty;  // Fila a comparar
+                    for (int j = 0; j < dgvQYS.Columns.Count-1; j++)
+                        unaFila = String.Concat(unaFila, dgvQYS.Rows[k].Cells[j].Value.ToString());
+                    if (String.Compare(estaFila, unaFila) == 0 && k != m)
+                    {
+                        dgvQYS.Rows.RemoveAt(k); // Si son iguales remuevo unaFila solamente
+                        n--;     // Tamaño actual del DataGridView, al remover disminuye en uno
+                        k--;
+                    }
+                    k++;
+                }
+                m++;
+            }
 
+        }
+       
         private void QYS_Load(object sender, EventArgs e)
         {
+
             mysql_load();
+            sql_load();
+            pg_Load();
+           // eliminarRepetidos();
         }
         private void btnELIMINAR_Click(object sender, EventArgs e)
         {
+         //  q.eliminarHiloMysql();
            mysql_eliminar();
-           sql_eliminar();
-          pg_eliminar();
+           // q.eliminarHiloSQL();
+         //  sql_eliminar();
+           // q.eliminarHilopg();
+        //  pg_eliminar();
         }
         private void btnBUSCAR_Click(object sender, EventArgs e)
         {

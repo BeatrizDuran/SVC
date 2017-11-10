@@ -18,11 +18,14 @@ namespace SVC
     public partial class frmQuejasySugerencias : Form
     {
         libQuejasySugerencias q = new libQuejasySugerencias();
-        public static frmQuejasySugerencias _instanceQYS;
+        public static frmQuejasySugerencias _instanceQYS;// variable del tipo (nombre de la ventana) declarada para el singleton
         public frmQuejasySugerencias()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Método Singleton, el cual permite que el modulo no sea instanciado mas de una vez
+        /// </summary>
         public frmQuejasySugerencias instance
         {
             get
@@ -34,8 +37,12 @@ namespace SVC
                 return frmQuejasySugerencias._instanceQYS;
             }
         }
+        /// <summary>
+        /// Método que permite agregar a Mysql
+        /// </summary>
         private void mysql_agregar()
         {
+
            if( q.nuevaQuejaMysql(txtNOMBRE.Text, txtDESCRIPCION.Text, lblFECHA.Text))
             {
                 MessageBox.Show("Se registro en Mysql");
@@ -46,12 +53,18 @@ namespace SVC
             }
                     
         }
+        /// <summary>
+        /// Método que permite agregar alSQLServer
+        /// </summary>
         private void sql_agregar()
         {
                 if (q.nuevaQuejasql(txtNOMBRE.Text, txtDESCRIPCION.Text, lblFECHA.Text))
-                    MessageBox.Show("Perfecto sql server");
-                else MessageBox.Show("Malisimo sql server");
+                    MessageBox.Show("Agregado a sql server");
+                else MessageBox.Show("Error al agregar a sql server");
             }
+        /// <summary>
+        /// Método que permite agregar al Postgres
+        /// </summary>
         private void pg_agregar()
         {
             if(q.nuevaQuejapg(txtNOMBRE.Text, txtDESCRIPCION.Text, lblFECHA.Text))
@@ -72,17 +85,17 @@ namespace SVC
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblFECHA.Text = DateTime.Now.ToLongDateString();
+            lblFECHA.Text =  DateTime.Now.ToLocalTime().ToString();
         }
         private void quejasysugerencias_Load(object sender, EventArgs e)
         {
-            lblFECHA.Text = DateTime.Now.ToLongDateString();
+            lblFECHA.Text =  DateTime.Now.ToLocalTime().ToString();
         }
         private void btnENVIAR_Click(object sender, EventArgs e)
         {
-            sql_agregar();
+           //   sql_agregar();
             mysql_agregar();
-            pg_agregar();         
+        //   pg_agregar();         
         }
     }
 }
